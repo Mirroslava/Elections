@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ElectionLand.Models.User>
+@{
+   ViewData["Title"] = "Кабінет Виборця";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <div class="row">
+
+            <div class="col-md-1" style="background-color: white"></div>
+            <div class="col-md-7" style="background-color: white">
+                <div class="shadow">
+
+                    <div class="container">
+
+                        <div class="contant">
+
+
+
+                            <h3>Інформація</h3>
+                            @foreach (var phone in Model)
+                            {
+                                <ul>
+                                    <li id="list">
+
+                                        <div class="users">
+                                            <a href="#" class="img"><img src="2.png" id="img" /></a>
+                                            <a href="#" class="name">@phone.Login</a>
+                                            <a class="info"><p>@phone.Email</p></a>
+                                            <a class="description"><p>@phone.Password</p></a>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
