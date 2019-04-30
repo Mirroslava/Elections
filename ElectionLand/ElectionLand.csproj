@@ -14,5 +14,22 @@
 
   <ItemGroup>
     <Compile Remove="Models\Citizens.cs" />
+    <Compile Remove="Controllers\ElectionController.cs" />
+    <Compile Remove="Controllers\ElectionController.cs" />
+    <Compile Remove="Controllers\ElectionController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Style\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\css\myCss.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Style\MyCss.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\MyCss.css" />
   </ItemGroup>
 </Project>

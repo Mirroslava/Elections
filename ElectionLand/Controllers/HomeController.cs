@@ -19,8 +19,14 @@ namespace ElectionLand.Controllers
             }
             public IActionResult Index()
             {
-                return View(db.Users.ToList());
+                int  userId = 1;
+            var user = db.Users.Where(us => us.Id == userId);
+                return View(user);
             }
+        public IActionResult About()
+        {
+            return View();
         }
+    }
     
 }
