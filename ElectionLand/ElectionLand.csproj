@@ -21,6 +21,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Style\" />
+    <Folder Include="Views\District\" />
+    <Folder Include="Views\Cabinet\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\css\myCss.css" />
@@ -33,10 +35,17 @@
     <None Include="wwwroot\images\like.png" />
     <None Include="wwwroot\images\sky.jpg" />
     <None Include="wwwroot\css\style.css" />
+    <None Include="Views\Home\Edite.cshtml">
+      <LastGenOutput>Edite.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Update="Style\MyCss.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Views\Home\Edit.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Edit.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -52,11 +61,12 @@
     <Content Remove="wwwroot\css\style.css" />
     <Content Remove="Views\Home\Home.cshtml" />
     <Content Remove="Views\Home\Start.cshtml" />
+    <Content Remove="Views\Home\Edite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\Start.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
-      <LastGenOutput>Home.cs</LastGenOutput>
+      <LastGenOutput>Start.cs</LastGenOutput>
     </Content>
   </ItemGroup>
 </Project>
