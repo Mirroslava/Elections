@@ -83,7 +83,7 @@ footer img   {
 .hero           {
   min-height: 800px;
   text-align: center;
-  background-image: url("~/images/sky.jpg");
+  background-image: url("~../images/sky.jpg");
   background-size: cover;
 }
 .hero-content   {
