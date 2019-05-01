@@ -26,5 +26,15 @@ namespace ElectionLand.Models
 
          public string Password { get; set; }
 
+
+        public List<StatusToUser> StatusToUsers { get; set; }
+        public List<UserToRole> UserToRoles { get; set; }
+        public List<Watcher> Watchers { get; set; }
+        public List<Voice> Voices { get; set; }
+        public List<UsetToVirtualDistrict> UsetToVirtualDistricts { get; set; }
+        public List<CharmanDC> CharmanDCs { get; set; }
+        public List<ChairmanCC> ChairmanCCs { get; set; }
+        public List<Election> Elections { get; set; }
+        public List<Appeal> Appeals { get; set; }
     }
 }

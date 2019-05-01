@@ -1,17 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Contact";
+﻿@model IEnumerable<ElectionLand.Models.VirtualCanton>
+@{
+    ViewData["Title"] = "Кабінет Виборця";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<!DOCTYPE html>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<html>
+<head>
+    <title></title>
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    <br />
+    <div><h1> Віртуальні Округи</h1></div>
+    <div className="container">
+       
+        <div className="row">
+            <div className="col-md-8">
+                <table class="table table-hover">
+                    <tr><td><h3>№</h3></td><td><h3>Назва</h3></td><td><h3>Центр</h3></td><td><h3>Адреса</h3></td></tr>
+                    @foreach (var item in Model)
+    {
+                <tr><td>@item.Id</td><td>@item.Title</td><td>@item.Centre</td><td>@item.Adress</td></tr>
+
+}
+                </table>
+
+            </div>
+            <div className="col-md-4">
+
+            </div>
+
+            </div>
+        </div>
+</body>
+</html>

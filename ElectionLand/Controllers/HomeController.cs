@@ -8,25 +8,37 @@ using ElectionLand.Models;
 
 namespace ElectionLand.Controllers
 {
-    
 
-        public class HomeController : Controller
+
+    public class HomeController : Controller
+    {
+        AplicationContext db;
+        public HomeController(AplicationContext context)
         {
-            AplicationContext db;
-            public HomeController(AplicationContext context)
-            {
-                db = context;
-            }
-            public IActionResult Index()
-            {
-                int  userId = 1;
+            db = context;
+        }
+        public IActionResult Start()
+        {
+            return View();
+        }
+        public IActionResult Index()
+        {
+            int userId = 1;
             var user = db.Users.Where(us => us.Id == userId);
-                return View(user);
-            }
+            return View(user);
+        }
         public IActionResult About()
         {
             return View();
         }
+        public IActionResult Contact()
+        {
+            return View(db.VirtualCantons.ToList());
+        }
+        public IActionResult Privacy()
+        {
+            return View(db.VirtualDistricts.ToList());
+        }
+
     }
-    
 }

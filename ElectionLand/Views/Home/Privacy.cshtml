@@ -1,6 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
+﻿@model IEnumerable<ElectionLand.Models.VirtualDistrict>
+@{
+    ViewData["Title"] = "Кабінет Виборця";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewData["Title"]</h2>
+<!DOCTYPE html>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<html>
+<head>
+    <title></title>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    <br />
+    <div><h1> Віртуальні Дільниці</h1></div>
+    <div className="container">
+
+        <div className="row">
+            <div className="col-md-8">
+                <table class="table table-hover">
+                    <tr><td><h3>№</h3></td><td><h3>Назва</h3></td><td><h3>Центр</h3></td><td><h3>Адреса</h3></td></tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr><td>@item.Id</td><td>@item.Title</td><td>@item.VirtualCantonId</td><td>@item.Adress</td></tr>
+
+                    }
+                </table>
+
+            </div>
+            <div className="col-md-4">
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
