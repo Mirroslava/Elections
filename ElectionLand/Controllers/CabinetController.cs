@@ -16,6 +16,11 @@ namespace ElectionLand.Controllers
         {
             db = context;
         }
+        public IActionResult Bulletin()
+        {
+           
+            return View();
+        }
         public IActionResult Index()
         {
             int userId = 1;

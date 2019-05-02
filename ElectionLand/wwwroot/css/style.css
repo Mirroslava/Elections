@@ -11,10 +11,18 @@ body   {
 }
 
 /* styling our overall page */
-body     {
-  background: #FFF;
-  font-family: Arial, Helvetica, sans-serif;
+body {
+    background: #FFF;
+    font-family: Arial, Helvetica, sans-serif, 'Open Sans';
+    font-weight: 400;
+    color: #666;
+    font-size: 12px;
+    line-height: 20px;
+    width: 100%;
 }
+/* resetting browser stuff */
+
+
 
 /* styling our header */
 header   {
@@ -234,3 +242,246 @@ footer img   {
   opacity: 1;
     transform: scaleY(1);
 }
+
+.page {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: right;
+}
+
+.product-layout {
+    width: 500px;
+    height: 200px;
+    border: 4px black;
+    align-content: center;
+}
+
+.caption {
+    padding: 0 20px;
+    min-height: 180px;
+}
+
+
+
+
+#sort {
+    width: 200px;
+    float: left
+}
+
+
+
+
+#show {
+    float: left;
+    width: 200px;
+}
+
+.filter {
+    width: 600px;
+    height: 50px;
+    margin: auto;
+    border: none;
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+}
+
+.div-content {
+    margin: 0 auto;
+    width: 620px;
+    height: 600px;
+    overflow: auto;
+}
+
+.tyt {
+    width: 600px;
+    height: 150px;
+    margin-left: 0;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+    border-radius: 20px;
+    cursor:pointer;
+}
+
+    .tyt p {
+        font-size: 14px;
+    }
+
+    .tyt h4 {
+        color: black;
+        font-family: arial;
+    }
+
+}
+
+.button-group {
+    float: left;
+    margin-left: 400px;
+    margin-top: 0px;
+}
+
+#btn {
+    width: 100px;
+    border: none;
+    margin-left: 400px;
+    margin-top: -10px;
+    color: #888;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+/* styling our header */
+header {
+    background: #222;
+    color: #FFF;
+    padding: 20px 30px;
+}
+
+/* logo */
+#logo {
+    display: inline-block;
+    color: #FFF;
+    text-decoration: none;
+    width: 49%;
+}
+
+    #logo img {
+        width: 50px;
+        border-radius: 3px;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    #logo span {
+        display: inline-block;
+    }
+
+/* main navigation */
+nav {
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+}
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+    }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+            nav ul li a {
+                color: #FFF;
+                text-decoration: none;
+                display: block;
+                padding: 10px 15px;
+                border-radius: 3px;
+                transition: 0.3s ease all;
+            }
+
+                nav ul li a:hover {
+                    background: #444;
+                }
+
+/* styling our footer */
+footer {
+    background: #222;
+    color: #777;
+    padding: 40px;
+    text-align: center;
+}
+
+    footer img {
+        display: block;
+        border-radius: 5px;
+        width: 80px;
+        margin: 0 auto 10px;
+    }
+
+
+
+.topmenu:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.topmenu > li {
+    width: 25%;
+    float: right;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
+
+    .topmenu > li > a {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        color: #404040;
+        padding: 15px 30px;
+    }
+
+.topmenu li a:hover {
+    color: #D5B45B;
+}
+
+.submenu-link:after {
+    content: "\f107";
+    font-family: "FontAwesome";
+    color: inherit;
+    margin-left: 10px;
+}
+
+.submenu {
+    background: #273037;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 5;
+    width: 180px;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    transition: .5s ease-in-out;
+}
+
+    .submenu a {
+        color: white;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 13px;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .submenu li:last-child a {
+        border-bottom: none;
+    }
+
+.topmenu > li:hover .submenu {
+    opacity: 1;
+    transform: scaleY(1);
+}
+/* resetting browser stuff */
+* {
+    box-sizing: border-box;
+}
+
+
+/* styling our overall page */
+body {
+    background: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
