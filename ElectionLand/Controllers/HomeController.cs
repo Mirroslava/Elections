@@ -106,25 +106,12 @@ namespace ElectionLand.Controllers
         [HttpPost]
         public IActionResult Registration(User user)
         {
-            //db.Users.Add(user);
-            //db.SaveChanges();
-            ////i/*nt id = (db.Users.Where(u => u.PIN == user.PIN));*/
-            //int lastId = db.Users.Last().Id;
-            //db.UserToRoles.Add(new UserToRole { UserId = lastId, RoleId = 1 });
-            //db.StatusToUsers.Add(new StatusToUser { UserId = lastId, UserStatusId = 1 });
-            //var user1 = db.Users.Where(u => u.Id == lastId);
-            //db.SaveChanges();
-            //return View("Index",user);
-
             user.Id = db.Users.Count()+1;
             db.Users.Add(user);
-            //db.SaveChanges();
-            //int lastId = db.Users.Last().Id;
             db.UserToRoles.Add(new UserToRole { Id=db.UserToRoles.Count()+1, UserId = user.Id, RoleId = 1 });
             db.StatusToUsers.Add(new StatusToUser { Id = db.StatusToUsers.Count() + 1, UserId = user.Id, UserStatusId = 1 });
-            var user1 = db.Users.Where(u => u.Id == user.Id);
             db.SaveChanges();
-
+            var user1 = db.Users.Where(u => u.Id == user.Id);
             return View("Index",user1);
         }
     }
