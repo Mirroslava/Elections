@@ -50,105 +50,26 @@
           </div>
         </div>
       </div>
-    <div class="div-content">
+<div class="div-content">
+    @foreach (var item in Model)
+    {
         <div class="element">
             <div>
-              <div class="tyt">
-                <h4>Назва</h4>
-                <p>Рік</p>
-                <p>Тур</p>
-            
-              
-              <div class="button-group">
-                <button id="btn" type="button" onclick="" >vote</button>
-                 </div>
-                 
-                 </div>
+
+                <div class="tyt">
+                    <h4>@item.Title</h4>
+                    <p>@item.Year</p>
+                    <p>@item.StartElection -- @item.EndElection</p>
+
+
+                    <div class="button-group">
+                        <button id="btn" type="button" onclick="">vote</button>
+                    </div>
+
+                </div>
             </div>
         </div>
-        
-        <div class="element">
-          <div class="">
-            <div>
-              <div class="tyt">
-                <h4>Назва</h4>
-                <p>Рік</p>
-                <p>Тур</p>
-            
-              
-              <div class="button-group">
-                <button id="btn" type="button" onclick="" >vote</button>
-                 </div>
-                 
-                 </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="element">
-            <div>
-              <div class="tyt">
-                <h4>Назва</h4>
-                <p>Рік</p>
-                <p>Тур</p>
-            
-              
-              <div class="button-group">
-                <button id="btn" type="button" onclick="" >vote</button>
-                 </div>
-                 
-                 </div>
-            </div>
-        </div>
-        
-        <div class="element">
-            <div>
-              <div class="tyt">
-                <h4>Назва</h4>
-                <p>Рік</p>
-                <p>Тур</p>
-            
-              
-              <div class="button-group">
-                <button id="btn" type="button" onclick="" >vote</button>
-                 </div>
-                 
-                 </div>
-            </div>
-        </div>
-        <div class="element">
-            <div>
-              <div class="tyt">
-                <h4>Назва</h4>
-                <p>Рік</p>
-                <p>Тур</p>
-            
-              
-              <div class="button-group">
-                <button id="btn" type="button" onclick="" >vote</button>
-                 </div>
-                 
-                 </div>
-            </div>
-        </div>
-        <div class="element">
-            <div>
-              <div class="tyt">
-                <h4>Назва</h4>
-                <p>Рік</p>
-                <p>Тур</p>
-            
-              
-              <div class="button-group">
-                <button id="btn" type="button" onclick="" >vote</button>
-                 </div>
-                 
-                 </div>
-            </div>
-        </div>
-    </div>
-    
-    
+    }
 </div>
 </div>
 </div>

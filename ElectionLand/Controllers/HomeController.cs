@@ -29,7 +29,7 @@ namespace ElectionLand.Controllers
         }
         public IActionResult About()
         {
-            return View();
+            return View(db.Elections.ToList());
         }
         public IActionResult Contact()
         {
