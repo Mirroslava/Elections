@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ElectionLand.Models.User>
 @{
-   ViewData["Title"] = "Кабінет Виборця";
+    ViewData["Title"] = "Кабінет Виборця";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
 
 
     <br />
-    <div ><h1>               Кабінет виборця</h1></div>
+    <div><h1>               Кабінет виборця</h1></div>
     <div class="row">
         <div class="col-md-8">
             <div class="container emp-profile">
@@ -33,7 +33,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="profile-head">
-                                @foreach (var item in Model){
+                                @foreach (var item in Model)
+                                {
 
                                     <h3>
                                         @Html.DisplayFor(model => item.FirstName, item.LastName)
@@ -60,11 +61,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            </div>
-                         @foreach (var item in Model)
-                         {
+                        </div>
+                        @foreach (var item in Model)
+                        {
 
-                                 <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="tab-content profile-tab" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home">
 
@@ -107,7 +108,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>???</label>
+                                                <label>Ви належете до округу @ViewBag.DistrictTitle за адресою: @ViewBag.DistrictAddress </label>
                                             </div>
                                             <div class="col-md-6">
                                                 <p></p>
@@ -123,27 +124,28 @@
                                     </div>
                                 </div>
 
-                                
-                        </div>}
-                    </form>
+
+                            </div>}
+                </form>
             </div>
-            </div>
         </div>
-            <div class="col-md-3 ">
-                <div class="list-group ">
-                    <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="About"><h3>Вибори</h3></a>
-                    <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="Contact"><h3>Округи</h3></a>
-                    <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="Privacy"><h3>Дільниці</h3></a>
+    </div>
+    <div class="col-md-3 ">
+        <div class="list-group ">
+            <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="About"><h3>Вибори</h3></a>
+            <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="Contact"><h3>Округи</h3></a>
+            <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="Privacy"><h3>Дільниці</h3></a>
 
 
-                    <a href="#" class="list-group-item list-group-item-action "><h3>Результат</h3></a>
-                    <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="Index"><h3>Статистика</h3></a>
-                    <a href="#" class="list-group-item list-group-item-action "><h3>...</h3></a>
+            <a href="#" class="list-group-item list-group-item-action "><h3>Результат</h3></a>
+            <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="Index"><h3>Статистика</h3></a>
+            <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Cabinet" asp-action="Bulletin"><h3>Голосувати</h3></a>
 
-                </div>
 
         </div>
-        </div>
+
+    </div>
+    </div>
 
 </body>
 </html>

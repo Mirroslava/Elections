@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ElectionLand.Controllers
 {
+
     public class CabinetController : Controller
     {
         static AplicationContext db;
@@ -33,13 +34,17 @@ namespace ElectionLand.Controllers
             else
             {
                 currentUserId = user.Last().Id;
-                var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
-                var district = db.VirtualDistricts.Where(d => d.Id == districtId);
+                try
+                {
+                    var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
+                    var district = db.VirtualDistricts.Where(d => d.Id == districtId);
 
-                ViewBag.DistrictTitle = district.Last().Title;
-                ViewBag.DistrictAddress = district.Last().Adress;
+                    ViewBag.DistrictTitle = district.Last().Title;
+                    ViewBag.DistrictAddress = district.Last().Adress;
+                }
+                catch { }
 
-                return View("../Home/Index", user);
+                return View("Index", user);
                
             }
 
@@ -105,20 +110,30 @@ namespace ElectionLand.Controllers
             var user = db.Users.Where(us => us.Id == userId);
             return View(user);
         }
+        [HttpGet]
         public IActionResult Edite()
         {
-           int userId = currentUserId;
-           User user = db.Users.FirstOrDefault(p => p.Id == userId);
 
-             return View(user);
-           
+                int userId = currentUserId;
+                var user = db.Users.Where(u => u.Id == currentUserId).Last();
+
+            return View("Edite", user);
         }
         [HttpPost]
-        public IActionResult Edite(User user)
+        public IActionResult Edite(User userChanges)
         {
-            db.Users.Update(user);
+            var currentUser = db.Users.Where(u => u.Id == currentUserId).Last();
+
+            currentUser.FirstName = userChanges.FirstName;
+            currentUser.LastName = userChanges.LastName;
+            currentUser.Email = userChanges.Email;
+
+            db.Users.Update(currentUser);
             db.SaveChangesAsync();
-            return RedirectToAction("Index");
+
+            var user = db.Users.Where(us => us.Id == userChanges.Id);
+            return View("Index", user);
+
         }
     }
 }
