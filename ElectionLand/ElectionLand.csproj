@@ -21,11 +21,13 @@
     <Compile Remove="Views\Home\Home.cs" />
     <Compile Remove="Migrations\20190501074046_Version2.cs" />
     <Compile Remove="Migrations\20190501074046_Version2.Designer.cs" />
+    <Compile Remove="ViewModel\ViewVotingModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Style\" />
     <Folder Include="Views\District\" />
     <Folder Include="Views\Statistic\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\css\myCss.css" />
@@ -67,12 +69,13 @@
     <Content Remove="wwwroot\images\sky.jpg" />
     <Content Remove="wwwroot\css\style.css" />
     <Content Remove="Views\Home\Home.cshtml" />
-    <Content Remove="Views\Home\Start.cshtml" />
     <Content Remove="Views\Home\Edite.cshtml" />
     <Content Remove="Views\Statistic\StataCanton.cshtml" />
     <Content Remove="Views\Statistic\StataDistrict.cshtml" />
     <Content Remove="Views\Statistic\Index.cshtml" />
     <Content Remove="Views\Statistic\Stata.cshtml" />
+    <Content Remove="Views\Admin.cshtml" />
+    <Content Remove="Views\Admin\DatoString.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\Start.cshtml">

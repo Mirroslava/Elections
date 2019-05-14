@@ -19,6 +19,6 @@ namespace ElectionLand.Models
         public List<ChairmanCC> ChairmanCCs { get; set; }
         public List <Candidate> Candidates { get; set; }
         public List <Appeal> Appeals { get; set; }
-        public List <StatusToUser> StatusToUsers { get; set; }
+       // public List <StatusToUser> StatusToUsers { get; set; }
     }
 }

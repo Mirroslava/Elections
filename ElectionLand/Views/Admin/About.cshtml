@@ -63,7 +63,8 @@
                                 <h4>@item.Title</h4>
                             </div>
                             <div class="col-md-1">
-                                <a asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Id"><span class="glyphicon glyphicon-trash"></span></a>
+                                <a asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Id"><span class="glyphicon glyphicon-trash"></span></a> 
+
                             </div>
                         </div>
                         </div>
@@ -71,7 +72,9 @@
                     <p>@item.StartElection -- @item.EndElection</p>
 
 
-
+                    <div class="button-group">
+                        <button id="btn" type="button" onclick="">vote</button>
+                    </div>
 
                 </div>
             </div>
