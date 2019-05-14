@@ -149,7 +149,7 @@ namespace ElectionLand
                     {
                         Id = 2,
                         UserId = 2,
-                        RoleId = 1
+                        RoleId = 2
                     },
                     new UserToRole
                     {

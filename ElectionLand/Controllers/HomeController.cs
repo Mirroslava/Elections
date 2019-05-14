@@ -16,6 +16,7 @@ namespace ElectionLand.Controllers
         public HomeController(AplicationContext context)
         {
             db = context;
+            
         }
         public IActionResult Start()
         {

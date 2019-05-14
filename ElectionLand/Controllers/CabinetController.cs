@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ElectionLand.Controllers
 {
+
     public class CabinetController : Controller
     {
         static AplicationContext db;
@@ -24,6 +25,10 @@ namespace ElectionLand.Controllers
         [HttpPost]
         public IActionResult LogIn(string login, string password)
         {
+            if (login == "admin1" && password == "admin1")
+            {
+                return RedirectToAction("Admin", "Admin");
+            }
             var user = db.Users.Where(u => u.Login == login && u.Password == password);
             if (user.Count() == 0)
             {
@@ -33,6 +38,7 @@ namespace ElectionLand.Controllers
             else
             {
                 currentUserId = user.Last().Id;
+<<<<<<< HEAD
                 var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
                 var district = db.VirtualDistricts.Where(d => d.Id == districtId);
 
@@ -41,16 +47,35 @@ namespace ElectionLand.Controllers
 
                 return View("../Home/Index", user);
                
+=======
+                try
+                {
+                    var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
+                    var district = db.VirtualDistricts.Where(d => d.Id == districtId);
+
+                    ViewBag.DistrictTitle = district.Last().Title;
+                    ViewBag.DistrictAddress = district.Last().Adress;
+                }
+                catch { }
+
+                return RedirectToAction("Index");
+
+>>>>>>> b885882c07f4862aa1781d8197648fc1f19b2ce8
             }
 
         }
         [HttpGet]
         public IActionResult Registration()
         {
+            currentUserId = new int();
             return View("Registration");
         }
         [HttpPost]
+<<<<<<< HEAD
         public IActionResult Registration(User user,int districtId)
+=======
+        public IActionResult Registration(User user, int districtId)
+>>>>>>> b885882c07f4862aa1781d8197648fc1f19b2ce8
         {
             if (!ModelState.IsValid)
             {
@@ -63,7 +88,8 @@ namespace ElectionLand.Controllers
             db.UsetToVirtualDistricts.Add(new UsetToVirtualDistrict { Id = db.UsetToVirtualDistricts.Count() + 1, UserId = user.Id, VirtualDistrictId = districtId });
             db.SaveChanges();
             var user1 = db.Users.Where(u => u.Id == user.Id);
-            return View("Index", user1);
+            currentUserId = user.Id;
+            return RedirectToAction("Index");
         }
         #region BirthDate
         public JsonResult BirthDateCheck(DateTime BirthDate)
@@ -77,9 +103,9 @@ namespace ElectionLand.Controllers
         }
         #endregion
         public IActionResult UniquePINCheck(long pin)
-        { 
+        {
             if (db.Users.Where(u => u.PIN == pin).Any()) return Json("Користувач з таким кодом вже був зареєстрований");
-            else return Json(true) ;
+            else return Json(true);
         }
 
         [HttpPost]
@@ -96,29 +122,53 @@ namespace ElectionLand.Controllers
         }
         public IActionResult Bulletin()
         {
-           
+
             return View();
         }
         public IActionResult Index()
         {
             int userId = currentUserId;
             var user = db.Users.Where(us => us.Id == userId);
+            try
+            {
+                var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
+                var district = db.VirtualDistricts.Where(d => d.Id == districtId);
+
+                ViewBag.DistrictTitle = district.Last().Title;
+                ViewBag.DistrictAddress = district.Last().Adress;
+            }
+            catch { }
             return View(user);
         }
+        [HttpGet]
         public IActionResult Edite()
         {
+<<<<<<< HEAD
            int userId = currentUserId;
            User user = db.Users.FirstOrDefault(p => p.Id == userId);
+=======
+>>>>>>> b885882c07f4862aa1781d8197648fc1f19b2ce8
 
-             return View(user);
-           
+            int userId = currentUserId;
+            var user = db.Users.Where(u => u.Id == currentUserId).Last();
+
+            return View("Edite", user);
         }
         [HttpPost]
-        public IActionResult Edite(User user)
+        public IActionResult Edite(User userChanges)
         {
-            db.Users.Update(user);
+            var currentUser = db.Users.Where(u => u.Id == currentUserId).Last();
+
+            currentUser.FirstName = userChanges.FirstName;
+            currentUser.LastName = userChanges.LastName;
+            currentUser.Email = userChanges.Email;
+
+            db.Users.Update(currentUser);
             db.SaveChangesAsync();
+
+            var user = db.Users.Where(us => us.Id == currentUser.Id);
             return RedirectToAction("Index");
+
         }
     }
 }
