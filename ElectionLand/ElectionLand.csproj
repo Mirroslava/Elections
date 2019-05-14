@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="Style\" />
     <Folder Include="Views\District\" />
-    <Folder Include="Views\Cabinet\" />
     <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
