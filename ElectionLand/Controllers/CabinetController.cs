@@ -11,12 +11,13 @@ namespace ElectionLand.Controllers
 {
     public class CabinetController : Controller
     {
-        AplicationContext db;
-
+        static AplicationContext db;
+        static int currentUserId;
 
         [HttpGet]
         public IActionResult LogIn()
         {
+            currentUserId = new int();
             ViewBag.Status = "";
             return View("LogIn");
         }
@@ -24,13 +25,24 @@ namespace ElectionLand.Controllers
         public IActionResult LogIn(string login, string password)
         {
             var user = db.Users.Where(u => u.Login == login && u.Password == password);
-            if (user.Count()==0)
+            if (user.Count() == 0)
             {
                 ViewBag.Status = "Облікового запису з таким логіном та паролем ще не було створено!";
                 return View("LogIn");
             }
-                
-            else return View("Index", user);
+            else
+            {
+                currentUserId = user.Last().Id;
+                var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
+                var district = db.VirtualDistricts.Where(d => d.Id == districtId);
+
+                ViewBag.DistrictTitle = district.Last().Title;
+                ViewBag.DistrictAddress = district.Last().Adress;
+
+                return View("../Home/Index", user);
+               
+            }
+
         }
         [HttpGet]
         public IActionResult Registration()
@@ -38,7 +50,7 @@ namespace ElectionLand.Controllers
             return View("Registration");
         }
         [HttpPost]
-        public IActionResult Registration(User user)
+        public IActionResult Registration(User user,int districtId)
         {
             if (!ModelState.IsValid)
             {
@@ -48,6 +60,7 @@ namespace ElectionLand.Controllers
             db.Users.Add(user);
             db.UserToRoles.Add(new UserToRole { Id = db.UserToRoles.Count() + 1, UserId = user.Id, RoleId = 1 });
             db.StatusToUsers.Add(new StatusToUser { Id = db.StatusToUsers.Count() + 1, UserId = user.Id, UserStatusId = 1 });
+            db.UsetToVirtualDistricts.Add(new UsetToVirtualDistrict { Id = db.UsetToVirtualDistricts.Count() + 1, UserId = user.Id, VirtualDistrictId = districtId });
             db.SaveChanges();
             var user1 = db.Users.Where(u => u.Id == user.Id);
             return View("Index", user1);
@@ -88,13 +101,13 @@ namespace ElectionLand.Controllers
         }
         public IActionResult Index()
         {
-            int userId = 1;
+            int userId = currentUserId;
             var user = db.Users.Where(us => us.Id == userId);
             return View(user);
         }
         public IActionResult Edite()
         {
-            int userId = 1;
+           int userId = currentUserId;
            User user = db.Users.FirstOrDefault(p => p.Id == userId);
 
              return View(user);
