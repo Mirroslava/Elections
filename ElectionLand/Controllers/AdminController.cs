@@ -59,7 +59,7 @@ namespace ElectionLand.Controllers
                 {
                     db.Elections.Remove(election);
                     db.SaveChangesAsync();
-                    return RedirectToAction("About");
+                    return RedirectToAction("Admin");
                 }
             }
             return NotFound();

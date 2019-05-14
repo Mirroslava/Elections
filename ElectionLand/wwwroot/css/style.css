@@ -242,7 +242,24 @@ footer img   {
   opacity: 1;
     transform: scaleY(1);
 }
+.container {
+    position: relative;
+}
 
+.center {
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-size: 50px;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
 .page {
     position: relative;
     min-height: 1px;
