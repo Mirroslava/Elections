@@ -45,7 +45,14 @@
         <input asp-for="Password" type="password" />
         <span asp-validation-for="Password" class="text-danger"></span>
         <hr>
-
+        <label for="districtId">Оберіть ваш округ:</label>
+        <select name="districtId" id="cbox" required>
+            <option value="1">LoKoMoTyV</option>
+            <option value="2">Master Splinter</option>
+            <option value="3">Bit and Byte</option>
+            <option value="4">Select</option>
+        </select>
+        <hr>
         <button type="submit">Зареєструватись</button>
     </form>
 </body>
