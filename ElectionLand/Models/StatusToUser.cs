@@ -14,5 +14,8 @@ namespace ElectionLand.Models
 
         public int UserStatusId { get; set; }
         public UserStatus UserStatus { get; set; }
+
+        public int ElectionId { get; set; }
+        public Election Election { get; set; }
     }
 }

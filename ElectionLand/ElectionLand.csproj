@@ -19,6 +19,8 @@
     <Compile Remove="Controllers\ElectionController.cs" />
     <Compile Remove="Controllers\ElectionController.cs" />
     <Compile Remove="Views\Home\Home.cs" />
+    <Compile Remove="Migrations\20190501074046_Version2.cs" />
+    <Compile Remove="Migrations\20190501074046_Version2.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Style\" />
