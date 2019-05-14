@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <h3><a asp-action="Edite" asp-controller="Cabinet" class="badge badge-dark">Edite Profile</a></h3>
+                            <h3><a asp-action="Edite" asp-controller="Cabinet" class="badge badge-dark">Редагувати профіль</a></h3>
                         </div>
                     </div>
                     <div class="row">
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>???</label>
+                                                <label>Ви належете до округу @ViewBag.DistrictTitle за адресою: @ViewBag.DistrictAddress </label>
                                             </div>
                                             <div class="col-md-6">
                                                 <p></p>
@@ -135,7 +135,7 @@
                     <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="Contact"><h3>Округи</h3></a>
                     <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Home" asp-action="Privacy"><h3>Дільниці</h3></a>
 
-                    <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Admin" asp-action="Create"><h3>Створити Вибори</h3></a>
+                    @*<a asp-area="" class="list-group-item list-group-item-action " asp-controller="Admin" asp-action="Create"><h3>Створити Вибори</h3></a>*@
                     <a href="#" class="list-group-item list-group-item-action "><h3>Результат</h3></a>
                     <a asp-area="" class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="Index"><h3>Статистика</h3></a>
                     <a href="#" class="list-group-item list-group-item-action "><h3>...</h3></a>
