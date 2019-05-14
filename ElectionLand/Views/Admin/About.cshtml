@@ -63,7 +63,8 @@
                                 <h4>@item.Title</h4>
                             </div>
                             <div class="col-md-1">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                <a asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Id"><span class="glyphicon glyphicon-trash"></span></a> 
+
                             </div>
                         </div>
                         </div>
