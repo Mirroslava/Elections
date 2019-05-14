@@ -38,16 +38,6 @@ namespace ElectionLand.Controllers
             else
             {
                 currentUserId = user.Last().Id;
-<<<<<<< HEAD
-                var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
-                var district = db.VirtualDistricts.Where(d => d.Id == districtId);
-
-                ViewBag.DistrictTitle = district.Last().Title;
-                ViewBag.DistrictAddress = district.Last().Adress;
-
-                return View("../Home/Index", user);
-               
-=======
                 try
                 {
                     var districtId = db.UsetToVirtualDistricts.Where(d => d.UserId == user.Last().Id).Last().VirtualDistrictId;
@@ -60,7 +50,6 @@ namespace ElectionLand.Controllers
 
                 return RedirectToAction("Index");
 
->>>>>>> b885882c07f4862aa1781d8197648fc1f19b2ce8
             }
 
         }
@@ -71,11 +60,7 @@ namespace ElectionLand.Controllers
             return View("Registration");
         }
         [HttpPost]
-<<<<<<< HEAD
-        public IActionResult Registration(User user,int districtId)
-=======
         public IActionResult Registration(User user, int districtId)
->>>>>>> b885882c07f4862aa1781d8197648fc1f19b2ce8
         {
             if (!ModelState.IsValid)
             {
@@ -143,11 +128,6 @@ namespace ElectionLand.Controllers
         [HttpGet]
         public IActionResult Edite()
         {
-<<<<<<< HEAD
-           int userId = currentUserId;
-           User user = db.Users.FirstOrDefault(p => p.Id == userId);
-=======
->>>>>>> b885882c07f4862aa1781d8197648fc1f19b2ce8
 
             int userId = currentUserId;
             var user = db.Users.Where(u => u.Id == currentUserId).Last();
