@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace ElectionLand.Models
 {
     public class Watcher
@@ -16,5 +18,7 @@ namespace ElectionLand.Models
 
         public int UserId{ get; set; }
         public User User { get; set; }
+
+        public List<Complaints> Complaints { get; set; }
     }
 }

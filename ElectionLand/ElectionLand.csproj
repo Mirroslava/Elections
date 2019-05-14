@@ -8,6 +8,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1" />
   </ItemGroup>
@@ -17,19 +18,66 @@
     <Compile Remove="Controllers\ElectionController.cs" />
     <Compile Remove="Controllers\ElectionController.cs" />
     <Compile Remove="Controllers\ElectionController.cs" />
+    <Compile Remove="Views\Home\Home.cs" />
+    <Compile Remove="Migrations\20190501074046_Version2.cs" />
+    <Compile Remove="Migrations\20190501074046_Version2.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Style\" />
+    <Folder Include="Views\District\" />
+    <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\css\myCss.css" />
+    <None Include="wwwroot\images\avatar.jpg" />
+    <None Include="wwwroot\images\brad.jpg" />
+    <None Include="wwwroot\images\david.jpg" />
+    <None Include="wwwroot\images\faces.png" />
+    <None Include="wwwroot\images\heart.png" />
+    <None Include="wwwroot\images\holly.jpg" />
+    <None Include="wwwroot\images\like.png" />
+    <None Include="wwwroot\images\sky.jpg" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="Views\Home\Edite.cshtml">
+      <LastGenOutput>Edite.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Statistic\StataCanton.cshtml" />
+    <None Include="Views\Statistic\StataDistrict.cshtml" />
+    <None Include="Views\Statistic\Index.cshtml" />
+    <None Include="Views\Statistic\Stata.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Style\MyCss.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Views\Home\Edit.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Edit.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\css\MyCss.css" />
+    <Content Remove="wwwroot\images\avatar.jpg" />
+    <Content Remove="wwwroot\images\brad.jpg" />
+    <Content Remove="wwwroot\images\david.jpg" />
+    <Content Remove="wwwroot\images\faces.png" />
+    <Content Remove="wwwroot\images\heart.png" />
+    <Content Remove="wwwroot\images\holly.jpg" />
+    <Content Remove="wwwroot\images\like.png" />
+    <Content Remove="wwwroot\images\sky.jpg" />
+    <Content Remove="wwwroot\css\style.css" />
+    <Content Remove="Views\Home\Home.cshtml" />
+    <Content Remove="Views\Home\Start.cshtml" />
+    <Content Remove="Views\Home\Edite.cshtml" />
+    <Content Remove="Views\Statistic\StataCanton.cshtml" />
+    <Content Remove="Views\Statistic\StataDistrict.cshtml" />
+    <Content Remove="Views\Statistic\Index.cshtml" />
+    <Content Remove="Views\Statistic\Stata.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Views\Home\Start.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Start.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
 </Project>

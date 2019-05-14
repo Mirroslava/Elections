@@ -1,0 +1,24 @@
+﻿@model ElectionLand.Models.VirtualDistrict
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form asp-action="edite" asp-controller="district" asp-route-id="@Model.Id">
+    <div><h3>Редагування</h3></div>
+    <br/>
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Назва</label>
+        <input type="text" asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Adress" class="control-label">Адреса</label>
+        <input type="text" asp-for="Adress" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Id" class="control-label">Центр</label>
+        <input type="text" asp-for="Id" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace ElectionLand.Models
 {
     public class UsetToVirtualDistrict
@@ -10,5 +12,6 @@ namespace ElectionLand.Models
 
         public int VirtualDistrictId { get; set; }
         public VirtualDistrict VirtualDistrict { get; set; }
+
     }
 }

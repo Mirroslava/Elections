@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ElectionLand.Models.StataCanton>
+
+@{
+    ViewData["Title"] = "StataCanton";
+}
+
+<div style="text-align:center">
+    <h1>Статистика</h1>
+
+    <h3>@ViewData["Message"]</h3>
+</div>
+
+<table class="bordered" width="80%" align="center">
+    <thead>
+        <tr>
+            <th>
+                Округ
+            </th>
+            <th>
+                Кількість голосів
+            </th>
+            <th>
+                Переможець
+            </th>
+            <th>
+                Результат
+            </th>
+            <th>
+                Рейтинг
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Statistic" asp-action="StataDistrict" asp-route-elections="1" asp-route-cantons="@item.VirtualCantonId">
+                        @Html.DisplayFor(modelItem => item.VirtualCanton.Title)
+                    </a>
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountVoice)
+                </td>
+                <td>
+                    <a asp-controller="Statistic" asp-action="Candidate" asp-route-id="@item.CandidateId">
+                        @Html.DisplayFor(modelItem => item.Candidate.User.FirstName)
+                        @Html.DisplayFor(modelItem => item.Candidate.User.LastName)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountVoiceCandidate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Percent)%
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ElectionLand.Models.Election>
+@{
+    ViewData["Title"] = "Вибори";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    <br />
+
+    <!-- the content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Content -->
+
+            <div class="filter">
+
+                <br />
+                <div width="200px" id="info">
+
+                    <div class="candidat_info">
+                        <img src="~/images/avatar.jpg" alt="photo">
+                        <p>Name</p>
+                        <p>Short Description Short Description Short Description Short Description Short Description</p>
+                    </div>
+
+                    <input type="radio" name="browser" value="IE" checked > кандидат 1</input>
+
+
+
+                </div>
+                <br />
+                <div class="info">
+                    <input type="radio" name="browser" value="IE" checked>
+                    кандидат 2
+                    </input>
+                </div>
+                <br />
+                <div class="info">
+                    <input type="radio" name="browser" value="IE" checked>
+                    кандидат 3
+                    </input>
+                </div>
+                <br />
+                <div class="info">
+                    <input type="radio" name="browser" value="IE" checked>кандидат 4</input>
+                </div>
+                <br />
+                <div class="info">
+                    <input type="radio" name="browser" value="IE" checked>
+                    кандидат 5
+                    </input>
+                </div>
+                <br />
+
+                <div class="button-group">
+                    <button id="btn" type="button" onclick="">Ok</button>
+                </div>
+
+
+            </div>
+
+        </div>
+        </div>
+</body>
+</html>

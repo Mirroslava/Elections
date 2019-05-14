@@ -148,9 +148,13 @@ namespace ElectionLand.Migrations
 
                     b.Property<string>("Title");
 
+                    b.Property<int?>("UserId");
+
                     b.Property<int>("Year");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Elections");
                 });
@@ -172,11 +176,15 @@ namespace ElectionLand.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("ElectionId");
+
                     b.Property<int>("UserId");
 
                     b.Property<int>("UserStatusId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ElectionId");
 
                     b.HasIndex("UserId");
 
@@ -194,15 +202,20 @@ namespace ElectionLand.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
-                    b.Property<string>("Login");
+                    b.Property<string>("Login")
+                        .IsRequired();
 
                     b.Property<long>("PIN");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
                     b.HasKey("Id");
 
@@ -348,22 +361,22 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.Appeal", b =>
                 {
                     b.HasOne("ElectionLand.Models.Candidate", "Candidate")
-                        .WithMany()
+                        .WithMany("Appeals")
                         .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.Election", "Election")
-                        .WithMany()
+                        .WithMany("Appeals")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Appeals")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.VirtualDistrict", "VirtualDistrict")
-                        .WithMany()
+                        .WithMany("Appeals")
                         .HasForeignKey("VirtualDistrictId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -371,12 +384,12 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.Candidate", b =>
                 {
                     b.HasOne("ElectionLand.Models.Election", "Election")
-                        .WithMany()
+                        .WithMany("Candidates")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Candidates")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -384,17 +397,17 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.ChairmanCC", b =>
                 {
                     b.HasOne("ElectionLand.Models.Election", "Election")
-                        .WithMany()
+                        .WithMany("ChairmanCCs")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("ChairmanCCs")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.VirtualCanton", "VirtualCanton")
-                        .WithMany()
+                        .WithMany("ChairmanCCs")
                         .HasForeignKey("VirtualCantonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -402,17 +415,17 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.CharmanDC", b =>
                 {
                     b.HasOne("ElectionLand.Models.Election", "Election")
-                        .WithMany()
+                        .WithMany("CharmanDCs")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("CharmanDCs")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.VirtualCanton", "VirtualCanton")
-                        .WithMany()
+                        .WithMany("CharmanDCs")
                         .HasForeignKey("VirtualCantonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -420,30 +433,42 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.Complaints", b =>
                 {
                     b.HasOne("ElectionLand.Models.Election", "Election")
-                        .WithMany()
+                        .WithMany("Complaints")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.VirtualDistrict", "VirtualDistrict")
-                        .WithMany()
+                        .WithMany("Complaints")
                         .HasForeignKey("VirtualDistrictId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.Watcher", "Watcher")
-                        .WithMany()
+                        .WithMany("Complaints")
                         .HasForeignKey("WatcherId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("ElectionLand.Models.Election", b =>
+                {
+                    b.HasOne("ElectionLand.Models.User")
+                        .WithMany("Elections")
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("ElectionLand.Models.StatusToUser", b =>
                 {
+                    b.HasOne("ElectionLand.Models.Election", "Election")
+                        .WithMany("StatusToUsers")
+                        .HasForeignKey("ElectionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("StatusToUsers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.UserStatus", "UserStatus")
-                        .WithMany()
+                        .WithMany("StatusToUsers")
                         .HasForeignKey("UserStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -451,12 +476,12 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.UserToRole", b =>
                 {
                     b.HasOne("ElectionLand.Models.Role", "Role")
-                        .WithMany()
+                        .WithMany("UserToRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("UserToRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -464,12 +489,12 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.UsetToVirtualDistrict", b =>
                 {
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("UsetToVirtualDistricts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.VirtualDistrict", "VirtualDistrict")
-                        .WithMany()
+                        .WithMany("UsetToVirtualDistricts")
                         .HasForeignKey("VirtualDistrictId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -477,7 +502,7 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.VirtualDistrict", b =>
                 {
                     b.HasOne("ElectionLand.Models.VirtualCanton", "VirtualCanton")
-                        .WithMany()
+                        .WithMany("VirtualDistricts")
                         .HasForeignKey("VirtualCantonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -485,21 +510,21 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.Voice", b =>
                 {
                     b.HasOne("ElectionLand.Models.Candidate", "Candidate")
-                        .WithMany()
+                        .WithMany("Voices")
                         .HasForeignKey("CandidateId");
 
                     b.HasOne("ElectionLand.Models.Election", "Election")
-                        .WithMany()
+                        .WithMany("Voices")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Voices")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.VirtualDistrict", "VirtualDistrict")
-                        .WithMany()
+                        .WithMany("Voices")
                         .HasForeignKey("VirtualDistrictId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -507,22 +532,22 @@ namespace ElectionLand.Migrations
             modelBuilder.Entity("ElectionLand.Models.Watcher", b =>
                 {
                     b.HasOne("ElectionLand.Models.Candidate", "Candidate")
-                        .WithMany()
+                        .WithMany("Watchers")
                         .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.Election", "Election")
-                        .WithMany()
+                        .WithMany("Watchers")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Watchers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ElectionLand.Models.VirtualCanton", "VirtualCanton")
-                        .WithMany()
+                        .WithMany("Watchers")
                         .HasForeignKey("VirtualCantonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
