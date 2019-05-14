@@ -69,7 +69,6 @@
     <Content Remove="wwwroot\images\sky.jpg" />
     <Content Remove="wwwroot\css\style.css" />
     <Content Remove="Views\Home\Home.cshtml" />
-    <Content Remove="Views\Home\Start.cshtml" />
     <Content Remove="Views\Home\Edite.cshtml" />
     <Content Remove="Views\Statistic\StataCanton.cshtml" />
     <Content Remove="Views\Statistic\StataDistrict.cshtml" />
