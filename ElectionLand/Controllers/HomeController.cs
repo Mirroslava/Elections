@@ -27,6 +27,16 @@ namespace ElectionLand.Controllers
             var user = db.Users.Where(us => us.Id == userId);
             return View(user);
         }
+        public IActionResult Vote()
+        {
+           
+            return View(db.Users.ToList());
+        }
+        public IActionResult Complaints()
+        {
+
+            return View(db.Complaintses.ToList());
+        }
         public IActionResult About()
         {
             return View(db.Elections.ToList());
