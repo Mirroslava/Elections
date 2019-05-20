@@ -1,87 +1,62 @@
-﻿@{
-    ViewData["Title"] = "Complaints";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿
+@{
+    ViewData["Title"] = "Registration";
 }
-@model Complaints
+@model User
+<h2>Реєстрація</h2>
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title></title>
-
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
 
 </head>
 <body>
-    <br />
-    <div className="container">
+    <form asp-controller="Cabinet" asp-action="Registration" method="post">
+        <hr />
+        <label asp-for="FirstName">Your first name:</label>
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+        <hr>
 
-        <div className="row">
-            <div className="col-md-8">
-                <form method="post" asp-controller="Cabinet" asp-action="Registration">
-                    <input name="illegalContent" id="illegal-content-type" type="hidden" value="false" />
+        <label asp-for="LastName">Your last name:</label>
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+        <hr>
 
-                    <fieldset class="standard-form">
-                        <legend>
-                            complaints
-                        </legend>
-                        <table>
-                            <tr>
-                                <th><label for="type">Type</label><span class="required">*</span></th>
-                                <td>
-                                    <select name="type" asp-for="Type" style="width: 357px;" id="contact-type">
-                                        <option value="">Select One...</option>
-                                        <option value="InappropriateContent">Inappropriate content</option>
-                                        <option value="Wrong_Info">Wrong info</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            @*<tr>
-                                    <th><label for="subject">Type</label><span class="required">*</span></th>
-                                    <td><input maxlength="50" name="subject" style="width: 350px;" type="text" /></td>
-                                </tr>*@
-                            <tr>
-                                <th><label for="text">Text</label><span class="required">*</span></th>
-                                <td><textarea asp-for="Text" name="text" style="width: 600px; height: 200px;"></textarea></td>
-                            </tr>
+        <label asp-for="BirthDate">Your date of birth:</label>
+        <input asp-for="BirthDate" type="date" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+        <hr>
 
-                            <tr>
-                                <td>
-                                    <label asp-for="ElectionId">ElectrionID:</label>
-                                    <input asp-for="ElectionId" style="width: 357px;" type="number" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label asp-for="VirtualDistrictId">VirtualDistrictId:</label>
-                                    <input asp-for="VirtualDistrictId" style="width: 357px;" type="number" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label asp-for="WatcherId">WatcherId:</label>
-                                    <input asp-for="WatcherId" style="width: 357px;" type="number" />
-                                </td>
-                            </tr>
+        <label asp-for="Email">Your Email:</label>
+        <input asp-for="Email" />
+        <hr>
 
-                        </table>
-                    </fieldset>
-                    <br />
-                    <div class="buttons" style="style=" margin:auto; padding: 12px 0 12px 6px; text-align: center;">
-                        <input name="send" type="submit" class="form-button single-click" value="Send" />
-                        @*<input name="cancel" type="submit" class="form-button" value="Cancel" />*@
-                    </div>
-                    <br />
-                </form>
-            </div>
-            <div className="col-md-4">
+        <label asp-for="PIN">Your PIN:</label>
+        <input asp-for="PIN" type="text" />
+        <span asp-validation-for="PIN" class="text-danger"></span>
+        <hr>
 
-            </div>
+        <label asp-for="Login">Your login:</label>
+        <input asp-for="Login" />
+        <span asp-validation-for="Login" class="text-danger"></span>
+        <hr>
 
-        </div>
-    </div>
+        <label asp-for="Password">Your password:</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <hr>
+        <label for="districtId">Оберіть ваш округ:</label>
+        <select name="districtId" id="cbox" required>
+            <option value="1">LoKoMoTyV</option>
+            <option value="2">Master Splinter</option>
+            <option value="3">Bit and Byte</option>
+            <option value="4">Select</option>
+        </select>
+        <hr>
+        <button type="submit">Зареєструватись</button>
+    </form>
 </body>
 </html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
