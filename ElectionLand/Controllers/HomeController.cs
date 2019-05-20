@@ -70,29 +70,10 @@ namespace ElectionLand.Controllers
             return View("ShowUsers", users);
         }
 
-        [HttpGet]
-        [Route("Home/CreateComplaint/{election_id:int}")]
-        public IActionResult CreateComplaint(int election_id)
-        {
-            ViewBag.ElectionID = election_id;
-            return View("CreateComplaint");
-        }
-        [HttpPost]
-        public IActionResult CreateComplaint(Complaints complaints)
-        {
-            complaints.Id = db.Complaintses.Count() + 1;
-            db.Complaintses.Add(complaints);
-            db.SaveChanges();
-            return RedirectToAction("Start");
-        }
 
-        [Route("Home/ShowComplaints/{canton_id:int}/")]
-        public IActionResult ShowComplaints(int canton_id)
-        {
-            List<VirtualDistrict> virtualDistricts = db.VirtualDistricts.Include(x => x.VirtualCanton).Where(x => x.VirtualCantonId == canton_id).ToList();
-            List<Complaints> complaints = db.Complaintses.Include(x => x.Election).Include(x => x.VirtualDistrict).Where(x => virtualDistricts.Contains(x.VirtualDistrict) && x.ElectionId == electionID).ToList();
-            return View(complaints);
-        }
+
+        
+       
 
         [Route("Home/ShowUsersCanton/{canton_id:int}")]
         public IActionResult ShowUsersCanton(int canton_id)
@@ -208,6 +189,65 @@ namespace ElectionLand.Controllers
             }
             return NotFound();
         }
+
+
+
+        [Route("Home/CreateComplaint/{election_id:int}")]
+        [HttpGet]
+        public IActionResult CreateComplaint(int election_id)
+        {
+            ViewBag.ElectionID = election_id;
+
+            return View("CreateComplaint");
+        }
+
+        [HttpPost]
+        public IActionResult CreateComplaint(Complaints complaints)
+        {
+
+            complaints.Id = db.Complaintses.Count() + 1;
+            db.Complaintses.Add(complaints);
+            db.SaveChanges();
+            return View("About");
+        }
+
+        [Route("Home/CreateAppeal/{user_id:int}")]
+        [HttpGet]
+        public IActionResult CreateAppeal(int user_id)
+        {
+            ViewBag.ElectionID = user_id;
+
+            return View("CreateAppeal");
+        }
+
+        [HttpPost]
+        public IActionResult CreateAppeal(Appeal appeal)
+        {
+            db.Appeals.Add(appeal);
+            db.SaveChanges();
+
+            appeal.Id = db.Appeals.Count() + 1;
+            return View();
+        }
+
+
+        [Route("Home/ShowComplaints/{canton_id:int}/")]
+        public IActionResult ShowComplaints(int canton_id)
+        {
+            List<VirtualDistrict> virtualDistricts = db.VirtualDistricts.Include(x => x.VirtualCanton).Where(x => x.VirtualCantonId == canton_id).ToList();
+            List<Complaints> complaints = db.Complaintses.Include(x => x.Election).Include(x => x.VirtualDistrict).Where(x => virtualDistricts.Contains(x.VirtualDistrict) && x.ElectionId == electionID).ToList();
+            return View(complaints);
+        }
+
+        [Route("Home/ShowAppeals/{canton_id:int}/")]
+        public IActionResult ShowAppeals(int canton_id)
+        {
+            List<VirtualDistrict> virtualDistricts = db.VirtualDistricts.Include(x => x.VirtualCanton).Where(x => x.VirtualCantonId == canton_id).ToList();
+            List<Appeal> appeals = db.Appeals.Include(x => x.Election).Include(x => x.VirtualDistrict).Where(x => virtualDistricts.Contains(x.VirtualDistrict) && x.ElectionId == electionID).ToList();
+            return View(appeals);
+        }
+
+
 
     }
 }

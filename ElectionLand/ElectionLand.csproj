@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\css\myCss.css" />
+    <None Remove="Views\Home\ShowAppeals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\images\avatar.jpg" />
@@ -48,6 +49,7 @@
     <None Include="Views\Statistic\StataDistrict.cshtml" />
     <None Include="Views\Statistic\Index.cshtml" />
     <None Include="Views\Statistic\Stata.cshtml" />
+    <None Include="Views\Home\CreateAppeal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Style\MyCss.css">
@@ -79,6 +81,8 @@
     <Content Remove="wwwroot\css\style %281%29.css" />
     <Content Remove="Views\Cabinet\LogIn.cshtml" />
     <Content Remove="Views\Home\Election.cshtml" />
+    <Content Remove="Views\Home\CreateAppeal.cshtml" />
+    <Content Remove="Views\Home\CreateAppeal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Complaints\Start.cshtml">
