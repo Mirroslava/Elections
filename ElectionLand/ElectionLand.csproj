@@ -42,7 +42,6 @@
     <None Include="wwwroot\images\holly.jpg" />
     <None Include="wwwroot\images\like.png" />
     <None Include="wwwroot\images\sky.jpg" />
-    <None Include="wwwroot\css\style.css" />
     <None Include="Views\Home\Edite.cshtml">
       <LastGenOutput>Edite.cs</LastGenOutput>
     </None>
@@ -70,7 +69,6 @@
     <Content Remove="wwwroot\images\holly.jpg" />
     <Content Remove="wwwroot\images\like.png" />
     <Content Remove="wwwroot\images\sky.jpg" />
-    <Content Remove="wwwroot\css\style.css" />
     <Content Remove="Views\Home\Home.cshtml" />
     <Content Remove="Views\Home\Edite.cshtml" />
     <Content Remove="Views\Statistic\StataCanton.cshtml" />
@@ -79,6 +77,8 @@
     <Content Remove="Views\Statistic\Stata.cshtml" />
     <Content Remove="Views\Admin.cshtml" />
     <Content Remove="Views\Admin\DatoString.cshtml" />
+    <Content Remove="wwwroot\css\style %281%29.css" />
+    <Content Remove="wwwroot\css\style %281%29.css" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\Start.cshtml">
