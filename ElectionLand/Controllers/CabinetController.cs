@@ -65,7 +65,7 @@ namespace ElectionLand.Controllers
             complaints.Id = db.Complaintses.Count() + 1;
             db.Complaintses.Add(complaints);
             db.SaveChanges();
-            return View("Registration");
+            return View("Bulletin");
         }
         [HttpGet]
         public IActionResult Registration2()

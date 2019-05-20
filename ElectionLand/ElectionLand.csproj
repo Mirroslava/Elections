@@ -22,6 +22,8 @@
     <Compile Remove="Migrations\20190501074046_Version2.cs" />
     <Compile Remove="Migrations\20190501074046_Version2.Designer.cs" />
     <Compile Remove="ViewModel\ViewVotingModel.cs" />
+    <Compile Remove="Views\Home\Start.cs" />
+    <Compile Remove="Views\Complaints\Start.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Style\" />
@@ -81,9 +83,18 @@
     <Content Remove="wwwroot\css\style %281%29.css" />
   </ItemGroup>
   <ItemGroup>
+    <Content Update="Views\Complaints\Start.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>Start.cs</LastGenOutput>
+    </Content>
     <Content Update="Views\Home\Start.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
       <LastGenOutput>Start.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Complaints\Start.cs">
+      <DependentUpon>Start.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
