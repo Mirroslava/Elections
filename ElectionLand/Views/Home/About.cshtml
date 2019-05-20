@@ -20,66 +20,56 @@
     <!-- the content -->
     <div class="container">
 
-<div class="row">
+        <div class="row">
 
-<br/>
-<!-- Content -->
-<div>      
-<div class="filter">
-      <button id="btn2" type="button" onclick="">search</button>
-        <div id="sort">
-          <div class="form-group">
-            <label >Sort By:</label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
-                <option value="">Default</option>
-                <option value="">Name (A - Z)</option>
-                <option value="">Name (Z - A)</option>
-                <option value="">Year (Low &gt; High)</option>
-                <option value="">Year (High &gt; Low)</option>
-            </select>
-          </div>
-        </div>
-        <div id="show">
-          <div class="form-group ">
-            <label>Show:</label>
-            <select id="input-limit" class="form-control" onchange="location = this.value;">
-                <option value="">New</option>
-                <option value="">Active</option>
-                <option value="">Past</option>
-            </select>
-          </div>
-        </div>
-      </div>
-<div class="div-content">
-    @foreach (var item in Model)
-    {
-        <div class="element">
+            <br />
+            <!-- Content -->
             <div>
-
-                <div class="tyt">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-11">
-                                <h4>@item.Title</h4>
-                            </div>
-                            <div class="col-md-1">
-                                <a asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Id"><span class="glyphicon glyphicon-trash"></span></a>
-                            </div>
+                <div class="filter">
+                    <button id="btn2" type="button" onclick="">search</button>
+                    <div id="sort">
+                        <div class="form-group">
+                            <label>Sort By:</label>
+                            <select id="input-sort" class="form-control" onchange="location = this.value;">
+                                <option value="">Default</option>
+                                <option value="">Name (A - Z)</option>
+                                <option value="">Name (Z - A)</option>
+                                <option value="">Year (Low &gt; High)</option>
+                                <option value="">Year (High &gt; Low)</option>
+                            </select>
                         </div>
+                    </div>
+                    <div id="show">
+                        <div class="form-group ">
+                            <label>Show:</label>
+                            <select id="input-limit" class="form-control" onchange="location = this.value;">
+                                <option value="">New</option>
+                                <option value="">Active</option>
+                                <option value="">Past</option>
+                            </select>
                         </div>
-                    <p>@item.Year</p>
-                    <p>@item.StartElection -- @item.EndElection</p>
+                    </div>
+                </div>
+                <div class="div-content">
+                    @foreach (var item in Model)
+                    {
+                        <a asp-action="Election" asp-route-election_id="@item.Id">
+                            <div class="element">
+                                <div>
 
+                                    <div class="tyt">
+                                        <h4>@item.Title</h4>
+                                        <p>@item.Year</p>
+                                        <p>@item.StartElection -- @item.EndElection</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
 
-
-
+                    }
                 </div>
             </div>
         </div>
-    }
-</div>
-</div>
-</div>
 
 </body>
 </html>

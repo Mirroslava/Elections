@@ -11,7 +11,7 @@ namespace ElectionLand
     {
         public static void Initialize(AplicationContext context)
         {
-            if (!context.Elections.Any())
+            if (!context.Watchers.Any())
             {
                 context.Users.AddRange(
                     new User
@@ -228,54 +228,64 @@ namespace ElectionLand
                         Title = "Watcher"
                     }
                 );
+
+
                 context.StatusToUsers.AddRange(
                     new StatusToUser
                     {
                         Id = 1,
                         UserId = 3,
-                        UserStatusId = 1
+                        UserStatusId = 1,
+                        ElectionId = 1
                     },
                      new StatusToUser
                      {
                          Id = 2,
                          UserId = 4,
-                         UserStatusId = 1
+                         UserStatusId = 1,
+                         ElectionId = 1
                      },
                       new StatusToUser
                       {
                           Id = 3,
                           UserId = 5,
-                          UserStatusId = 1
+                          UserStatusId = 1,
+                          ElectionId = 1
                       },
                        new StatusToUser
                        {
                            Id = 4,
                            UserId = 6,
-                           UserStatusId = 1
+                           UserStatusId = 1,
+                           ElectionId = 1
                        },
                         new StatusToUser
                         {
                             Id = 5,
                             UserId = 7,
-                            UserStatusId = 1
+                            UserStatusId = 1,
+                            ElectionId = 1
                         },
                          new StatusToUser
                          {
                              Id = 6,
                              UserId = 8,
-                             UserStatusId = 1
+                             UserStatusId = 1,
+                             ElectionId = 1
                          },
                           new StatusToUser
                           {
                               Id = 7,
                               UserId = 9,
-                              UserStatusId = 1
+                              UserStatusId = 1,
+                              ElectionId = 1
                           },
                            new StatusToUser
                            {
                                Id = 8,
                                UserId = 10,
-                               UserStatusId = 1
+                               UserStatusId = 1,
+                               ElectionId = 1
                            }
                     );
                 context.VirtualCantons.AddRange(
@@ -419,11 +429,23 @@ namespace ElectionLand
                         VirtualDistrictId = 1
                     }
                     );
+                context.Watchers.AddRange
+                    (
+                    new Watcher
+                    {
+                        Id = 1,
+                        CandidateId = 1,
+                        ElectionId = 1,
+                        UserId = 1,
+                        VirtualCantonId = 1,
+
+                    }
+                    );
                 context.SaveChanges();
             }
         }
-           
-           
+
+
     }
 }
 
