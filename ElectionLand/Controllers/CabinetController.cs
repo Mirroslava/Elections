@@ -53,14 +53,28 @@ namespace ElectionLand.Controllers
             }
 
         }
+
         [HttpGet]
         public IActionResult Registration()
+        {
+            return View("Registration");
+        }
+        [HttpPost]
+        public IActionResult Registration(Complaints complaints)
+        { 
+            complaints.Id = db.Complaintses.Count() + 1;
+            db.Complaintses.Add(complaints);
+            db.SaveChanges();
+            return View("Registration");
+        }
+        [HttpGet]
+        public IActionResult Registration2()
         {
             currentUserId = new int();
             return View("Registration");
         }
         [HttpPost]
-        public IActionResult Registration(User user, int districtId)
+        public IActionResult Registration2(User user, int districtId)
         {
             if (!ModelState.IsValid)
             {

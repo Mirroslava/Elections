@@ -28,9 +28,12 @@
     <Folder Include="Views\District\" />
     <Folder Include="Views\Statistic\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Complaints\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="wwwroot\css\myCss.css" />
+    <None Remove="wwwroot\css\myCss.css" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="wwwroot\images\avatar.jpg" />
     <None Include="wwwroot\images\brad.jpg" />
     <None Include="wwwroot\images\david.jpg" />
