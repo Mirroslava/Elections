@@ -35,6 +35,7 @@
   <ItemGroup>
     <None Remove="wwwroot\css\myCss.css" />
     <None Remove="Views\Home\ShowAppeals.cshtml" />
+    <None Remove="Views\Home\ShowCandidates.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\images\avatar.jpg" />
