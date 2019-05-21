@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BulletinModel>
+@{
+    ViewData["Title"] = "Вибори";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    <br />
+
+    <main>
+        <p class="H1">Бюлетень</p>
+        <form asp-action="Bulletin" method="post" >
+            @foreach (BulletinModel m in Model)
+            {
+                <label class="container">
+                    @m.user.FirstName @m.user.LastName<br>
+                    @m.user.BirthDate.Year року народження
+                    <input type="radio" value="@m.candidate.Id" name="radiovote"/>
+                    <span class="checkmark"></span>
+                </label>
+            }
+        <button class="button" style="vertical-align:middle"><span>Голосувати </span> </button>
+        </form>
+        
+             
+
+            
+
+            <p></p>
+
+        </main>
+</body>
+</html>

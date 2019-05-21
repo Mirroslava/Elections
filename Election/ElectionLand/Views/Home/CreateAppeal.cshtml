@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Appeal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Appeal
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    <br />
+    <div className="container">
+
+        <div className="row">
+            <div className="col-md-8">
+                <form method="post" asp-controller="Home" asp-action="CreateAppeal">
+                    <input name="illegalContent" id="illegal-content-type" type="hidden" value="false" />
+
+                    <fieldset class="standard-form">
+                        <legend>
+                            complaints and appeals
+                        </legend>
+                        <table>
+                            <tr>
+                                <th><label for="type">Type</label><span class="required">*</span></th>
+                                <td>
+                                    <select name="type" asp-for="Type" style="width: 357px;" id="contact-type">
+                                        <option value="">Select One...</option>
+                                        <option value="GENERAL_INQUIRY">Ask a general question</option>
+                                        <option value="SUGGESTION">Report an error on this website or make a suggestion</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            @*<tr>
+                        <th><label for="subject">Type</label><span class="required">*</span></th>
+                        <td><input maxlength="50" name="subject" style="width: 350px;" type="text" /></td>
+                    </tr>*@
+                            <tr>
+                                <th><label for="text">Text</label><span class="required">*</span></th>
+                                <td><textarea asp-for="Text" name="text" style="width: 600px; height: 200px;"></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label asp-for="ElectionId">ElectrionID:</label>
+                                    <input asp-for="ElectionId" style="width: 357px;" type="number" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label asp-for="VirtualDistrictId">VirtualDistrictId:</label>
+                                    <input asp-for="VirtualDistrictId" style="width: 357px;" type="number" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label asp-for="CandidateId">CandidateId:</label>
+                                    <input asp-for="CandidateId" style="width: 357px;" type="number" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label asp-for="UserId">UserId:</label>
+                                    <input asp-for="UserId" style="width: 357px;" type="number" />
+                                </td>
+                            </tr>
+
+
+
+                        </table>
+                    </fieldset>
+                    <br />
+                    <div class="buttons" style="style=" margin:auto; padding: 12px 0 12px 6px; text-align: center;">
+                        <input name="send" type="submit" class="form-button single-click" value="Send" />
+                        @*<input name="cancel" type="submit" class="form-button" value="Cancel" />*@
+                    </div>
+                    <br />
+                </form>
+            </div>
+            <div className="col-md-4">
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

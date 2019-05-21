@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<h2>Вхід</h2>
+<!DOCTYPE HTML>
+<html>
+<body>
+    <p class="text-danger">@ViewBag.Status</p>
+    <form asp-action="LogIn" asp-controller="Cabinet" method="post">
+        <hr>
+        <div>
+            <label for="login">Ваш логін:</label>
+            <input type="text" name="login" />
+        </div>
+        <p></p>
+        <div>
+            <label for="login">Ваш пароль:</label>
+            <input type="text" name="password" />
+        </div>
+        <hr>
+        <input type="submit" value="Увійти" />
+    </form>
+</body>
+</html>
