@@ -110,14 +110,15 @@ namespace ElectionLand.Controllers
         [HttpGet]
         public IActionResult Bulletin(int? election_id)
         {
-            if (!db.Voices.Where(v => v.UserId == currentUserId).Any())
+            if (!db.Voices.Where(v => (v.UserId == currentUserId)&&(v.ElectionId==election_id)).Any())
             {
                 electionID = (int)election_id;
 
                 var model = new List<BulletinModel>();
                 foreach (Candidate c in db.Candidates)
                 {
-                    model.Add(new BulletinModel { candidate = c, user = db.Users.FirstOrDefault(u => u.Id == c.Id) });
+                    if (c.ElectionId==election_id) model.Add(new BulletinModel { candidate = c, user = db.Users.FirstOrDefault(u => u.Id == c.Id) });
+
                 }
                 return View(model);
             }
