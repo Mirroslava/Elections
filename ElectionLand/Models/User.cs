@@ -24,7 +24,6 @@ namespace ElectionLand.Models
 
         [Required(ErrorMessage = "Будь ласка, вкажіть ваш код ")]
         [Remote(action:"UniquePINCheck", controller:"Cabinet")]
-
         [Range(1000000000000, 9999999999999, ErrorMessage = "Код містить 13 цифр")]
         public long PIN { get; set; }
 

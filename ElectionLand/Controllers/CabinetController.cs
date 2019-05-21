@@ -59,7 +59,9 @@ namespace ElectionLand.Controllers
         public IActionResult Registration()
         {
             currentUserId = new int();
+            ViewBag.Districts = db.VirtualDistricts;
             return View("Registration");
+
         }
         [HttpPost]
         public IActionResult Registration(User user, int districtId)
@@ -71,7 +73,7 @@ namespace ElectionLand.Controllers
             user.Id = db.Users.Count() + 1;
             db.Users.Add(user);
             db.UserToRoles.Add(new UserToRole { Id = db.UserToRoles.Count() + 1, UserId = user.Id, RoleId = 1 });
-            db.StatusToUsers.Add(new StatusToUser { Id = db.StatusToUsers.Count() + 1, UserId = user.Id, UserStatusId = 1 });
+            //db.StatusToUsers.Add(new StatusToUser { Id = db.StatusToUsers.Count() + 1, UserId = user.Id, UserStatusId = 1 });
             db.UsetToVirtualDistricts.Add(new UsetToVirtualDistrict { Id = db.UsetToVirtualDistricts.Count() + 1, UserId = user.Id, VirtualDistrictId = districtId });
             db.SaveChanges();
             var user1 = db.Users.Where(u => u.Id == user.Id);
