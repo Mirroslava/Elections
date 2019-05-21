@@ -16,6 +16,7 @@ namespace ElectionLand.Models
         public List<UsetToVirtualDistrict> UsetToVirtualDistricts { get; set; }
         public List<Complaints> Complaints { get; set; }
         public List<Appeal> Appeals { get; set; }
+        public List<VirtualDistrict> VirtualDistricts { get; set; }
 
 
     }

@@ -10,8 +10,8 @@ namespace ElectionLand.Models
         public int ElectionId { get; set; }
         public Election Election { get; set; }
 
-        public int VirtualCantonId { get; set; }
-        public VirtualCanton VirtualCanton { get; set; }
+        public int VirtualDistrictId { get; set; }
+        public VirtualDistrict VirtualDistrict { get; set; }
 
         public int CandidateId{ get; set; }
         public Candidate Candidate { get; set; }
