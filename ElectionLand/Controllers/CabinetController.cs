@@ -131,9 +131,9 @@ namespace ElectionLand.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Bulletin(int radiovote)
+        public IActionResult Bulletin(int radio)
         {
-            var candidate = db.Candidates.FirstOrDefault(c=>c.Id==radiovote);
+            var candidate = db.Candidates.FirstOrDefault(c=>c.Id==radio);
             db.Voices.Add(new Voice
             {
                 Id = db.Voices.Count() + 1,

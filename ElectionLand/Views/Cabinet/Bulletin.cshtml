@@ -9,8 +9,8 @@
 <head>
     <title></title>
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/bulleten.css" />
+
     <!------ Include the above in your HEAD tag ---------->
 
 </head>
@@ -18,21 +18,29 @@
     <br />
 
     <main>
-        <p class="H1">Бюлетень</p>
+        <h1 class="H1" align="centre">Бюлетень</h1>
+
+
         <form asp-action="Bulletin" method="post" >
-            @foreach (BulletinModel m in Model)
-            {
-                <label class="container">
-                    @m.user.FirstName @m.user.LastName<br>
+            <div class="funkyradio">
+                @foreach (BulletinModel m in Model)
+    {
+
+            <div class="funkyradio-success">
+                <input type="radio" name="radio" value="@m.candidate.Id" id="@m.candidate.Id">
+                <label for="@m.candidate.Id">
+                    @m.user.FirstName @m.user.LastName
                     @m.user.BirthDate.Year року народження
-                    <input type="radio" value="@m.candidate.Id" name="radiovote"/>
-                    <span class="checkmark"></span>
                 </label>
-            }
-        <button class="button" style="vertical-align:middle"><span>Голосувати </span> </button>
+
+            </div>
+}
+
+            <button class="button" style="vertical-align:middle"><span>Голосувати </span> </button>
+            </div>
         </form>
         
-             
+
 
             
 
@@ -41,3 +49,6 @@
         </main>
 </body>
 </html>
+
+
+
