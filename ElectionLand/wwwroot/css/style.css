@@ -335,6 +335,35 @@ img {
     }
 
 }
+#sort {
+    width: 200px;
+    float: left
+}
+
+
+
+
+#show {
+    float: left;
+    width: 200px;
+}
+
+.filter {
+    width: 600px;
+    height: 50px;
+    margin: auto;
+    border: none;
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+}
+
+.div-content {
+    margin: 0 auto;
+    width: 620px;
+    height: 600px;
+    overflow: auto;
+}
 
 .button-group {
     float: left;

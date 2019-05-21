@@ -243,7 +243,18 @@ namespace ElectionLand.Controllers
             return View(appeals);
         }
 
+        [HttpGet]
+        public IActionResult ShowCandidates()
+        {
 
+
+            var s = db.Candidates
+              .Include(x => x.Election)
+              .Include(x => x.User);
+
+
+            return View(s);
+        }
 
     }
 }

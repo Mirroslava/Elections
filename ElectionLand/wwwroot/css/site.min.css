@@ -1,1 +1,105 @@
-body{padding-top:50px;padding-bottom:20px}.body-content{padding-left:15px;padding-right:15px}.carousel-caption p{font-size:20px;line-height:1.4}.carousel-inner .item img[src$=".svg"]{width:100%}#qrCode{margin:15px}@media screen and (max-width:767px){.carousel-caption{display:none}}
+body{padding-top:50px;padding-bottom:20px
+
+}
+.body-content{padding-left:15px;padding-right:15px}
+.carousel-caption p{font-size:20px;line-height:1.4}
+.carousel-inner .item img[src$=".svg"]{width:100%
+
+}#qrCode{margin:15px}
+@media screen and (max-width:767px){.carousel-caption{display:none}}
+
+.page {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: right;
+}
+
+.product-layout {
+    width: 500px;
+    height: 200px;
+    border: 4px black;
+    align: center;
+}
+
+.caption {
+    padding: 0 20px;
+    min-height: 180px;
+}
+
+
+
+
+#sort {
+    width: 200px;
+    float: left
+}
+
+
+
+
+#show {
+    float: left;
+    width: 200px;
+}
+
+.filter {
+    width: 600px;
+    height: 50px;
+    margin: auto;
+    border: none;
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+}
+
+.div-content {
+    margin: 0 auto;
+    width: 620px;
+    height: 600px;
+    overflow: auto;
+}
+
+.tyt {
+    width: 600px;
+    height: 150px;
+    margin-left: 0;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+    .tyt p {
+        font-size: 14px;
+    }
+
+    .tyt h4 {
+        color: black;
+        font-family: arial;
+    }
+
+}
+
+
+.button-group {
+    float: left;
+    margin-left: 400px;
+    margin-top: 0px;
+}
+
+#btn {
+    width: 100px;
+    border: none;
+    margin-left: 400px;
+    margin-top: -10px;
+    color: #888;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+

@@ -35,6 +35,7 @@
   <ItemGroup>
     <None Remove="wwwroot\css\myCss.css" />
     <None Remove="Views\Home\ShowAppeals.cshtml" />
+    <None Remove="Views\Home\ShowCandidates.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\images\avatar.jpg" />
@@ -79,7 +80,6 @@
     <Content Remove="Views\Admin\DatoString.cshtml" />
     <Content Remove="wwwroot\css\style %281%29.css" />
     <Content Remove="wwwroot\css\style %281%29.css" />
-    <Content Remove="Views\Cabinet\LogIn.cshtml" />
     <Content Remove="Views\Home\CreateAppeal.cshtml" />
     <Content Remove="Views\Home\CreateAppeal.cshtml" />
   </ItemGroup>
