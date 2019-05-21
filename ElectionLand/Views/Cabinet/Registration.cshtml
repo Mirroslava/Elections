@@ -7,56 +7,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="~/css/login.css" />
 </head>
 <body>
-    <form asp-controller="Cabinet" asp-action="Registration" method="post">
-        <hr />
-        <label asp-for="FirstName">Your first name:</label>
-        <input asp-for="FirstName" />
-        <span asp-validation-for="FirstName" class="text-danger"></span>
-        <hr>
 
-        <label asp-for="LastName">Your last name:</label>
-        <input asp-for="LastName" />
-        <span asp-validation-for="LastName" class="text-danger"></span>
-        <hr>
+    <div class="container">
 
-        <label asp-for="BirthDate">Your date of birth:</label>
-        <input asp-for="BirthDate" type="date" />
-        <span asp-validation-for="BirthDate" class="text-danger"></span>
-        <hr>
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
 
-        <label asp-for="Email">Your Email:</label>
-        <input asp-for="Email" />
-        <hr>
+                <form asp-controller="Cabinet" asp-action="Registration" method="post" align="centre">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="FirstName" name="" class="form-control" placeholder="First name" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="" asp-for="LastName" class="form-control" placeholder="Last name" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
 
-        <label asp-for="PIN">Your PIN:</label>
-        <input asp-for="PIN" type="text" />
-        <span asp-validation-for="PIN" class="text-danger"></span>
-        <hr>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="" asp-for="BirthDate" type="date" class="form-control" placeholder="Date of birth" />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
 
-        <label asp-for="Login">Your login:</label>
-        <input asp-for="Login" />
-        <span asp-validation-for="Login" class="text-danger"></span>
-        <hr>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input asp-for="Email" name="" class="form-control" placeholder="Email address" type="email">
+                    </div>
 
-        <label asp-for="Password">Your password:</label>
-        <input asp-for="Password" type="password" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-        <hr>
-        <label for="districtId">Оберіть ваш округ:</label>
-        <select name="districtId" id="cbox" required>
-            <option value="1">LoKoMoTyV</option>
-            <option value="2">Master Splinter</option>
-            <option value="3">Bit and Byte</option>
-            <option value="4">Select</option>
-        </select>
-        <hr>
-        <button type="submit">Зареєструватись</button>
-    </form>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" asp-for="PIN" placeholder="PIN" type="text">
+
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input asp-for="Login" name="" class="form-control" placeholder="Login" type="text">
+
+                        <span asp-validation-for="Login" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" asp-for="Password" placeholder="Create password" type="password">
+
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div> <!-- form-group// -->
+
+
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                        </div>
+                        <select class="form-control" name="districtId" id="cbox" required>
+                            <option selected=""> Оберіть дільницю</option>
+                            <option value="1">LoKoMoTyV</option>
+                            <option value="2">Master Splinter</option>
+                            <option value="3">Bit and Byte</option>
+                            <option value="4">Select</option>
+                        </select>
+                    </div>
+                    <div class="form-group input-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Зареєструватись  </button>
+                    </div>
+
+                </form>
+            </article>
+        </div>
+    </div>
 </body>
 </html>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+

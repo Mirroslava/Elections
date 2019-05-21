@@ -1,8 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Complaints";
+    ViewData["Title"] = "Appeal";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Complaints
+@model Appeal
 <!DOCTYPE html>
 
 <html>
@@ -20,12 +20,12 @@
 
         <div className="row">
             <div className="col-md-8">
-                <form method="post" asp-controller="Home" asp-action="CreateComplaint">
+                <form method="post" asp-controller="Home" asp-action="CreateAppeal">
                     <input name="illegalContent" id="illegal-content-type" type="hidden" value="false" />
 
                     <fieldset class="standard-form">
                         <legend>
-                            complaints
+                            complaints and appeals
                         </legend>
                         <table>
                             <tr>
@@ -33,16 +33,15 @@
                                 <td>
                                     <select name="type" asp-for="Type" style="width: 357px;" id="contact-type">
                                         <option value="">Select One...</option>
-                                        <option value="InappropriateContent">Inappropriate content</option>
-                                        <option value="Wrong_Info">Wrong info</option>
-                                        <option value="Other">Other</option>
+                                        <option value="GENERAL_INQUIRY">Ask a general question</option>
+                                        <option value="SUGGESTION">Report an error on this website or make a suggestion</option>
                                     </select>
                                 </td>
                             </tr>
                             @*<tr>
-                                    <th><label for="subject">Type</label><span class="required">*</span></th>
-                                    <td><input maxlength="50" name="subject" style="width: 350px;" type="text" /></td>
-                                </tr>*@
+                        <th><label for="subject">Type</label><span class="required">*</span></th>
+                        <td><input maxlength="50" name="subject" style="width: 350px;" type="text" /></td>
+                    </tr>*@
                             <tr>
                                 <th><label for="text">Text</label><span class="required">*</span></th>
                                 <td><textarea asp-for="Text" name="text" style="width: 600px; height: 200px;"></textarea></td>
@@ -51,11 +50,7 @@
                             <tr>
                                 <td>
                                     <label asp-for="ElectionId">ElectrionID:</label>
-                                    <select asp-for="ElectionId" class="form-control">
-                                        <option value="@ViewBag.ElectionID">
-                                            @ViewBag.ElectionID
-                                        </option>
-                                    </select>
+                                    <input asp-for="ElectionId" style="width: 357px;" type="number" />
                                 </td>
                             </tr>
                             <tr>
@@ -66,10 +61,18 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label asp-for="WatcherId">WatcherId:</label>
-                                    <input asp-for="WatcherId" style="width: 357px;" type="number" />
+                                    <label asp-for="CandidateId">CandidateId:</label>
+                                    <input asp-for="CandidateId" style="width: 357px;" type="number" />
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <label asp-for="UserId">UserId:</label>
+                                    <input asp-for="UserId" style="width: 357px;" type="number" />
+                                </td>
+                            </tr>
+
+
 
                         </table>
                     </fieldset>
@@ -89,5 +92,3 @@
     </div>
 </body>
 </html>
-
-
