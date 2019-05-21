@@ -31,6 +31,7 @@
     <Folder Include="Views\Statistic\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Complaints\" />
+    <Folder Include="Views\Vote\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\css\myCss.css" />
@@ -83,6 +84,7 @@
     <Content Remove="Views\Home\Election.cshtml" />
     <Content Remove="Views\Home\CreateAppeal.cshtml" />
     <Content Remove="Views\Home\CreateAppeal.cshtml" />
+    <Content Remove="Views\Vote\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Complaints\Start.cshtml">

@@ -70,10 +70,19 @@ namespace ElectionLand.Controllers
             return View("ShowUsers", users);
         }
 
+        [HttpGet]
+        public IActionResult ShowWatchers()
+        {
 
+            var s = db.Watchers
+                .Include(x => x.Candidate.User)
+                .Include(x => x.Election)
+                .Include(x => x.VirtualCanton)
+                .Include(x => x.User);
 
-        
-       
+            return View(s);
+        }
+
 
         [Route("Home/ShowUsersCanton/{canton_id:int}")]
         public IActionResult ShowUsersCanton(int canton_id)
