@@ -3,24 +3,56 @@
     ViewData["Title"] = "LogIn";
 }
 
+
+
+
 <h2>Вхід</h2>
 <!DOCTYPE HTML>
 <html>
+<head>
+    <title></title>
+
+    <link rel="stylesheet" href="~/css/login.css" />
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+
 <body>
+
     <p class="text-danger">@ViewBag.Status</p>
-    <form asp-action="LogIn" asp-controller="Cabinet" method="post">
-        <hr>
-        <div>
-            <label for="login">Ваш логін:</label>
-            <input type="text" name="login" />
-        </div>
-        <p></p>
-        <div>
-            <label for="login">Ваш пароль:</label>
-            <input type="text" name="password" />
-        </div>
-        <hr>
-        <input type="submit" value="Увійти" />
-    </form>
+
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">Log in</h4>
+                </div> <!-- /.modal-header -->
+
+
+                <div class="modal-body">
+                    <form asp-action="LogIn" asp-controller="Cabinet" method="post">
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="login" class="form-control" placeholder="Login" />
+                                <label for="login" class="input-group-addon glyphicon glyphicon-user"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password" />
+                                <label for="login" class="input-group-addon glyphicon glyphicon-lock"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Увійти" class=" btn btn-primary" />
+                            <a asp-area="" asp-controller="Cabinet" asp-action="Registration">Реєстрація</a>
+                        </div>
+                    </form>
+                    <br />
+                </div>
+
 </body>
 </html>
+
+

@@ -12,6 +12,7 @@
         <label asp-for="Year" class="control-label">Рік</label>
         <input type="number" asp-for="Year" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="StartElection" class="control-label">Початок виборів</label>
 
@@ -20,6 +21,10 @@
     <div class="form-group">
         <label asp-for="EndElection" class="control-label">Кінець виборів</label>
         <input type="datetime" asp-for="EndElection" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ChairmanСVK" class="control-label">Голова ЦВК</label>
+        <input type="number" asp-for="ChairmanСVK" class="form-control" />
     </div>
     <div class="form-group">
         <input type="submit" value="Send" class="btn btn-default" />
