@@ -1,0 +1,140 @@
+﻿
+.body-height{
+    min-height:83.7vh !important;
+}
+
+p {
+    font-size: 14px;
+}
+
+.profile-img {
+    text-align: center;
+}
+
+    .profile-img img {
+        width: 70%;
+        height: 100%;
+    }
+
+
+
+.profile-head h5 {
+    color: #333;
+}
+
+.profile-head h6 {
+    color: #0062cc;
+}
+
+.profile-edit-btn {
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.profile-head .nav-tabs .nav-link {
+    font-weight: 600;
+    border: none;
+}
+
+    .profile-head .nav-tabs .nav-link.active {
+        border: none;
+        border-bottom: 2px solid #0062cc;
+    }
+
+.profile-tab p {
+    font-weight: 600;
+    color: #0062cc;
+}
+
+.l-projectList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.l-item-features li {
+    position: relative;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-right: 15px;
+}
+
+.pagination-num .form-control {
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+}
+
+.form-control {
+    border: 1px solid #c7d9df;
+}
+
+.pagination-num label {
+    display: inline-block;
+    color: #777777;
+}
+
+label {
+    font-weight: normal;
+}
+
+
+
+
+.ui.items {
+    margin: 0em 0;
+}
+
+.ui.link.items {
+    border-style: outset;
+    border-radius: 10px;
+    height: 140px;
+}
+
+    .ui.link.items:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2);
+        border-radius: 10px;
+    }
+
+
+.c-fixedAlerts {
+    position: fixed;
+    top: 20px;
+    left: 10%;
+    width: 80%;
+    z-index: 1060;
+}
+
+
+
+.media {
+    margin-top: 0px;
+    height: 140px;
+}
+
+
+
+.media-object {
+    width: 70px;
+    height: 90px;
+}
+
+
+
+a:link {
+    text-decoration: none;
+}
+
+.media-heading {
+    color: rgb(15, 133, 15);
+    font-size: 22px;
+}
+
+

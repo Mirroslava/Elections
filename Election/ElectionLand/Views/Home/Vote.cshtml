@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ElectionLand.Models.User>
+@{
+    ViewData["Title"] = "Кабінет Виборця";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main>
+
+
+
+    <br/>
+    <a href="#" class="btn btn-danger" role="button"style="vertical-align:middle"><span> Подати скаргу </span></a>
+
+    <lr/>
+    <!-- <h3>Назва виборів:</h3>  -->
+    <!-- <p>Вибори президента</p> -->
+    <!-- <h3>Рік проведення:</h3> -->
+    <!-- <p>2018</p> -->
+
+    <h1 class="Text">Вибори президента</h1>
+
+    <h4 class="Text"><b>Рік:</b> 2019</h4>
+    <p class="Text"><b>Кількість турів:</b> 2</p>
+    <h3 class="Text">
+        <b>Список кандидатів:</b>
+
+        <ol class="Text">
+            @foreach (var item in Model)
+    {
+        <li>@item.FirstName @item.LastName</li>
+}
+        </ol>
+
+    </h3>
+    <h3 class="Text">Переможець: Пишняк Вадим</h3>
+    <p class="Text"><b>Кількість голосів:</b> 7</p>
+    <p class="Text"><b>Загальна кількість виборців:</b> 10</p>
+
+    <a asp-area=""class="btn btn-primary" role="button" style="vertical-align:middle" asp-controller="Cabinet" asp-action="Bulletin" > Голосувати </a>
+
+
+
+    <p></p>
+
+</main>
