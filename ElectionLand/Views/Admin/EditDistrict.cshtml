@@ -1,0 +1,26 @@
+﻿@using ElectionLand.Models
+@model VirtualDistrict
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="EditDistrict" asp-route-id="@Model.Id" method="post">
+    <div><h3>Редагування</h3></div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Назва</label>
+        <input type="text" asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Adress" class="control-label">Адреса</label>
+        <input type="text" asp-for="Adress" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="VirtualCantonId" class="control-label">Центр</label>
+        <input type="text" asp-for="VirtualCantonId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>

@@ -1,0 +1,46 @@
+﻿@using ElectionLand.Models
+@model Election
+
+<h4>Election</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditElections">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartElection" class="control-label"></label>
+                <input asp-for="StartElection" class="form-control" />
+                <span asp-validation-for="StartElection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndElection" class="control-label"></label>
+                <input asp-for="EndElection" class="form-control" />
+                <span asp-validation-for="EndElection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChairmanСVK" class="control-label"></label>
+                <input asp-for="ChairmanСVK" class="form-control" />
+                <span asp-validation-for="ChairmanСVK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

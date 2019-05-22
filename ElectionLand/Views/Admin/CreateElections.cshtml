@@ -1,0 +1,29 @@
+﻿@using ElectionLand.Models
+@model Election
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="CreateElections" >
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Назва</label>
+        <input type="text" asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label">Рік</label>
+        <input type="number" asp-for="Year" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="StartElection" class="control-label">Початок виборів</label>
+
+        <input type="datetime" asp-for="StartElection" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="EndElection" class="control-label">Кінець виборів</label>
+        <input type="datetime" asp-for="EndElection" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>

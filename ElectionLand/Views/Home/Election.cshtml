@@ -51,23 +51,56 @@
                     @Html.DisplayFor(model => model.ChairmanСVK)
                 </dd>
             </dl>
-            <button asp-controller="Statistic" asp-action="Stata" asp-route-election_id="@Model.Id">Оголосити остаточні результати</button>
         </div>
     </div>
     <div style="float:right; margin-right:60px;">
         <div class="list-group ">
-            @*@if()*@
+
+            @if (ViewBag.UserStatusID != 0)
+            {
+
+                if (ViewBag.StatusToUser.UserStatus.Id == 4)
+                {
             <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="ElectionSave" asp-route-elections="@Model.Id"><h3>Оголосити остаточні результати</h3></a>
             <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="ShowCanton"><h3>Округи</h3></a>
             <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="ShowDistrict"><h3>Дільниці</h3></a>
+            <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="ShowW"><h3>Переглянути спостерігачів</h3></a>
+                }
+                else if(ViewBag.StatusToUser.UserStatus.Id == 3)
+            {
+
+            <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="ShowDistrict"><h3>Дільниці</h3></a>
+            }
+            else if(ViewBag.StatusToUser.UserStatus.Id == 2)
+            {
+
+            <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="ShowAppeals"><h3>Переглянути звертання</h3></a>
+            }
+                else if (ViewBag.StatusToUser.UserStatus.Id == 5)
+                {
+            <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="CreateComplaint" asp-route-election_id="@Model.Id"><h3>Подати скаргу</h3></a>
+            <a class="list-group-item list-group-item-action " asp-action="ShowUsersDistrict" asp-controller="Home" asp-route-district_id="@ViewBag.VirtualDistinctId"><h3>Виборці дільниці</h3></a>
+                }
+            <a class="list-group-item list-group-item-action " asp-controller="Cabinet" asp-action="Bulletin" asp-route-election_id="@Model.Id"><h3>Голосувати</h3></a>
+            <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="CreateAppeal" asp-route-election_id="@Model.Id"><h3>Подати звернення</h3></a>
+            }
+
+            <a class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="FilterCandidate" asp-route-election_id="@Model.Id"><h3>Кандидати</h3></a>
+            <a class="list-group-item list-group-item-action " asp-controller="Cabinet" asp-action="SumbitCandidacy" asp-route-election_id="@Model.Id" asp-route-user_id="@ViewBag.UserID"><h3>Подати кандидатуру</h3></a>
             <a class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="Stata" asp-route-elections="@Model.Id"><h3>Результат</h3></a>
             <a class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="StataCanton" asp-route-elections="@Model.Id"><h3>Статистика по округах</h3></a>
-            <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="CreateComplaint" asp-route-election_id="@Model.Id"><h3>Створити скаргу</h3></a>
+            @*<a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="ElectionSave" asp-route-elections="@Model.Id"><h3>Оголосити остаточні результати</h3></a>
 
-            <a class="list-group-item list-group-item-action " asp-controller="Cabinet" asp-action="Bulletin" asp-route-election_id="@Model.Id"><h3>Голосувати</h3></a>
+        <a class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="Stata" asp-route-elections="@Model.Id"><h3>Результат</h3></a>
+        <a class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="StataCanton" asp-route-elections="@Model.Id"><h3>Статистика по округах</h3></a>
+        <a class="list-group-item list-group-item-action " asp-controller="Home" asp-action="CreateComplaint" asp-route-election_id="@Model.Id"><h3>Створити скаргу</h3></a>
 
-            <a class="list-group-item list-group-item-action " asp-action="ShowUsersDistrict" asp-controller="Home" asp-route-district_id="@ViewBag.VirtualDistinctId"><h3>Виборці дільниці</h3></a>
-           @* <a asp-action="ShowUsersDistrict" asp-controller="Home" asp-route-district_id="@">виборці</a>*@
+        <a class="list-group-item list-group-item-action " asp-controller="Cabinet" asp-action="Bulletin"><h3>Голосувати</h3></a>
+        <a class="list-group-item list-group-item-action " asp-controller="Statistic" asp-action="FilterCandidate" asp-route-election_id="@Model.Id"><h3>Кандидати</h3></a>
+        <a class="list-group-item list-group-item-action " asp-controller="Cabinet" asp-action="SumbitCandidacy" asp-route-election_id="@Model.Id" asp-route-user_id="@ViewBag.UserID"><h3>Подати кандидатуру</h3></a>
+
+        <a class="list-group-item list-group-item-action " asp-action="ShowUsersDistrict" asp-controller="Home" asp-route-district_id="@ViewBag.VirtualDistinctId"><h3>Виборці дільниці</h3></a>*@
+            @* <a asp-action="ShowUsersDistrict" asp-controller="Home" asp-route-district_id="@">виборці</a>*@
 
 
         </div>

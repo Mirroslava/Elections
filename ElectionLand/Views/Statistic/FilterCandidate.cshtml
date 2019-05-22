@@ -1,0 +1,55 @@
+﻿@model ElectionLand.Models.FilterCandidates
+@{
+    ViewData["Title"] = "FilterCandidate";
+}
+
+    <div style="margin-left:10px; margin-right:10px;">
+        <form method="get">
+            <div class="form-inline form-group">
+
+                <label class="control-label">Рейтинг </label>
+                @Html.TextBox("overallRating", Model.OverallRating, htmlAttributes: new { @class = "form-control" })
+
+                <label class="control-label">Перемог у округах </label>
+                @Html.TextBox("numberVictoriesCantons", Model.NumberVictoriesCantons, htmlAttributes: new { @class = "form-control" })
+                <br />
+                <label class="control-label">Рейтинг округу </label>
+                @Html.TextBox("ratingCantons", Model.RatingCantons, htmlAttributes: new { @class = "form-control" })
+
+                <label class="control-label">Кількість округів </label>
+                @Html.TextBox("countRatingCantons", Model.CountRatingCantons, htmlAttributes: new { @class = "form-control" })
+                <br />
+                <input type="submit" value="Фильтр" class="btn btn-default" />
+            </div>
+        </form>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Імя</th>
+                <th>Рейтинг</th>
+                <th>Перемог у округах</th>
+                <th>Кількість округів</th>
+            </tr>
+
+            @foreach (var item in Model.ResultCandidates)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Candidate.User.FirstName)
+                @Html.DisplayFor(modelItem => item.Candidate.User.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverallRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberVictoriesCantons)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountRatingCantons)
+            </td>
+        </tr>
+            }
+        </table>
+
+    </div>
+
