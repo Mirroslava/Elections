@@ -25,7 +25,7 @@ namespace ElectionLand.Models
         public DbSet <Watcher> Watchers { get; set; }
         public DbSet <Complaints> Complaintses { get; set; }
 
-
+        public DbSet<SumbitCandidacy> SumbitCandidacies { get; set; }
 
 
 

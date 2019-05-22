@@ -1,0 +1,45 @@
+﻿@using ElectionLand.Models
+@model Election
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Election</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartElection)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartElection)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndElection)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndElection)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ChairmanСVK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ChairmanСVK)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteElections">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+    </form>
+</div>

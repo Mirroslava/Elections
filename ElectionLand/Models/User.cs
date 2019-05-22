@@ -48,5 +48,6 @@ namespace ElectionLand.Models
         public List<Election> Elections { get; set; }
         public List<Appeal> Appeals { get; set; }
         public List<Candidate> Candidates { get; set; }
+        public List<SumbitCandidacy> SumbitCandidacies { get; set; }
     }
 }

@@ -22,6 +22,7 @@ namespace ElectionLand.Models
 
         public List<StatusToUser> StatusToUsers { get; set; }
 
+        public List<SumbitCandidacy> SumbitCandidacies { get; set; }
 
     }
 }

@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\Citizens.cs" />
-    <Compile Remove="Controllers\ElectionController.cs" />
-    <Compile Remove="Controllers\ElectionController.cs" />
-    <Compile Remove="Controllers\ElectionController.cs" />
     <Compile Remove="Views\Home\Home.cs" />
     <Compile Remove="Migrations\20190501074046_Version2.cs" />
     <Compile Remove="Migrations\20190501074046_Version2.Designer.cs" />
@@ -31,6 +27,7 @@
     <Folder Include="Views\Statistic\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Complaints\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\css\myCss.css" />
@@ -50,7 +47,21 @@
     <None Include="Views\Statistic\StataDistrict.cshtml" />
     <None Include="Views\Statistic\Index.cshtml" />
     <None Include="Views\Statistic\Stata.cshtml" />
-    <None Include="Views\Home\CreateAppeal.cshtml" />
+    <None Include="Views\Admin\Candidacy.cshtml" />
+    <None Include="Views\Admin\Canton.cshtml" />
+    <None Include="Views\Admin\CreateCanton.cshtml" />
+    <None Include="Views\Admin\CreateDistrict.cshtml" />
+    <None Include="Views\Admin\CreateElections.cshtml" />
+    <None Include="Views\Admin\DeleteCanton.cshtml" />
+    <None Include="Views\Admin\DeleteDistrict.cshtml" />
+    <None Include="Views\Admin\DeleteElections.cshtml" />
+    <None Include="Views\Admin\District.cshtml" />
+    <None Include="Views\Admin\EditCanton.cshtml" />
+    <None Include="Views\Admin\EditDistrict.cshtml" />
+    <None Include="Views\Admin\EditElections.cshtml" />
+    <None Include="Views\Admin\Elections.cshtml" />
+    <None Include="Views\Home\ShowW.cshtml" />
+    <None Include="Views\Statistic\FilterCandidate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Style\MyCss.css">
@@ -77,11 +88,22 @@
     <Content Remove="Views\Statistic\Index.cshtml" />
     <Content Remove="Views\Statistic\Stata.cshtml" />
     <Content Remove="Views\Admin.cshtml" />
-    <Content Remove="Views\Admin\DatoString.cshtml" />
     <Content Remove="wwwroot\css\style %281%29.css" />
     <Content Remove="wwwroot\css\style %281%29.css" />
-    <Content Remove="Views\Home\CreateAppeal.cshtml" />
-    <Content Remove="Views\Home\CreateAppeal.cshtml" />
+    <Content Remove="Views\Admin\Canton.cshtml" />
+    <Content Remove="Views\Admin\CreateCanton.cshtml" />
+    <Content Remove="Views\Admin\CreateDistrict.cshtml" />
+    <Content Remove="Views\Admin\CreateElections.cshtml" />
+    <Content Remove="Views\Admin\DeleteCanton.cshtml" />
+    <Content Remove="Views\Admin\DeleteDistrict.cshtml" />
+    <Content Remove="Views\Admin\DeleteElections.cshtml" />
+    <Content Remove="Views\Admin\District.cshtml" />
+    <Content Remove="Views\Admin\EditCanton.cshtml" />
+    <Content Remove="Views\Admin\EditDistrict.cshtml" />
+    <Content Remove="Views\Admin\EditElections.cshtml" />
+    <Content Remove="Views\Admin\Elections.cshtml" />
+    <Content Remove="Views\Home\ShowW.cshtml" />
+    <Content Remove="Views\Statistic\FilterCandidate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Complaints\Start.cshtml">

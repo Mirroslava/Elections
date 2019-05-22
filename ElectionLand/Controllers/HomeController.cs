@@ -19,7 +19,7 @@ namespace ElectionLand.Controllers
         public HomeController(AplicationContext context)
         {
             db = context;
-            
+
         }
         public IActionResult Start()
         {
@@ -33,7 +33,7 @@ namespace ElectionLand.Controllers
         }
         public IActionResult Vote()
         {
-           
+
             return View(db.Users.ToList());
         }
         [Route("Home/Election/{election_id:int}")]
@@ -46,6 +46,8 @@ namespace ElectionLand.Controllers
                 Election election = db.Elections.FirstOrDefault(x => x.Id == election_id);
                 if (election != null)
                 {
+                    ViewBag.ElectionID = electionID;
+                    ViewBag.UserID = UserID;
                     electionID = (int)election_id;
                     StatusToUser statusToUser = db.StatusToUsers.Include(x => x.UserStatus).Include(x => x.Election).FirstOrDefault(x => x.UserId == UserID && x.ElectionId == election_id);
                     if (statusToUser == null)
@@ -149,10 +151,10 @@ namespace ElectionLand.Controllers
             return NotFound();
         }
         [HttpPost]
-        public  IActionResult Edite(VirtualCanton virtualCanton)
+        public IActionResult Edite(VirtualCanton virtualCanton)
         {
             db.VirtualCantons.Update(virtualCanton);
-             db.SaveChangesAsync();
+            db.SaveChangesAsync();
             return RedirectToAction("Contact");
         }
 
@@ -165,7 +167,7 @@ namespace ElectionLand.Controllers
                 VirtualCanton virtualCanton = db.VirtualCantons.FirstOrDefault(p => p.Id == id);
                 if (virtualCanton != null)
                     if (virtualCanton != null)
-                    return View(virtualCanton);
+                        return View(virtualCanton);
             }
             return NotFound();
         }
@@ -179,7 +181,7 @@ namespace ElectionLand.Controllers
                 if (virtualCanton != null)
                 {
                     db.VirtualCantons.Remove(virtualCanton);
-                   db.SaveChangesAsync();
+                    db.SaveChangesAsync();
                     return RedirectToAction("Contact");
                 }
             }
@@ -204,14 +206,14 @@ namespace ElectionLand.Controllers
             complaints.Id = db.Complaintses.Count() + 1;
             db.Complaintses.Add(complaints);
             db.SaveChanges();
-            return View("About");
+            return View("Start");
         }
 
-        [Route("Home/CreateAppeal/{user_id:int}")]
+        [Route("Home/CreateAppeal/{election_id:int}")]
         [HttpGet]
-        public IActionResult CreateAppeal(int user_id)
+        public IActionResult CreateAppeal(int election_id)
         {
-            ViewBag.ElectionID = user_id;
+            ViewBag.ElectionID = election_id;
 
             return View("CreateAppeal");
         }
@@ -219,10 +221,11 @@ namespace ElectionLand.Controllers
         [HttpPost]
         public IActionResult CreateAppeal(Appeal appeal)
         {
+            appeal.Id = db.Appeals.Count() + 1;
             db.Appeals.Add(appeal);
             db.SaveChanges();
 
-            appeal.Id = db.Appeals.Count() + 1;
+            
             return View();
         }
 
@@ -235,10 +238,10 @@ namespace ElectionLand.Controllers
             return View(complaints);
         }
 
-        [Route("Home/ShowAppeals/{canton_id:int}/")]
-        public IActionResult ShowAppeals(int canton_id)
+        
+        public IActionResult ShowAppeals()
         {
-            List<VirtualDistrict> virtualDistricts = db.VirtualDistricts.Include(x => x.VirtualCanton).Where(x => x.VirtualCantonId == canton_id).ToList();
+            List<VirtualDistrict> virtualDistricts = db.VirtualDistricts.Include(x => x.VirtualCanton).ToList();
             List<Appeal> appeals = db.Appeals.Include(x => x.Election).Include(x => x.VirtualDistrict).Where(x => virtualDistricts.Contains(x.VirtualDistrict) && x.ElectionId == electionID).ToList();
             return View(appeals);
         }
@@ -255,6 +258,16 @@ namespace ElectionLand.Controllers
 
             return View(s);
         }
+        public IActionResult ShowW()
+        {
 
+            var s = db.Watchers
+                .Include(x => x.Candidate.User)
+                .Include(x => x.Election)
+                .Include(x => x.VirtualDistrict)
+                .Include(x => x.User);
+
+            return View(s);
+        }
     }
 }

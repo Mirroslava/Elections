@@ -119,7 +119,7 @@ namespace ElectionLand.Controllers
                 var model = new List<BulletinModel>();
                 foreach (Candidate c in db.Candidates)
                 {
-                    if (c.ElectionId==election_id) model.Add(new BulletinModel { candidate = c, user = db.Users.FirstOrDefault(u => u.Id == c.Id) });
+                    if (c.ElectionId==election_id) model.Add(new BulletinModel { candidate = c, user = db.Users.FirstOrDefault(u => u.Id == c.UserId) });
 
                 }
                 return View(model);
@@ -189,6 +189,35 @@ namespace ElectionLand.Controllers
             var user = db.Users.Where(us => us.Id == currentUser.Id);
             return RedirectToAction("Index");
 
+        }
+        public async Task<IActionResult> SumbitCandidacy(int? election_id, int? user_id)
+        {
+            if (election_id != null || user_id != null)
+            {
+                Election election = db.Elections.FirstOrDefault(x => x.Id == election_id);
+                User user = db.Users.FirstOrDefault(x => x.Id == user_id);
+                if (election != null || user != null)
+                {
+                    Candidate candidate = db.Candidates.FirstOrDefault(x => x.ElectionId == election_id && x.UserId == user_id);
+                    SumbitCandidacy sumbit = db.SumbitCandidacies.FirstOrDefault(x => x.ElectionId == election_id && x.UserId == user_id);
+                    if (candidate != null)
+                    {
+                        return Content("Ви вже додані до кандидатів даних виборів");
+                    }
+                    else if (sumbit != null)
+                    {
+                        return Content("Ви вже подали заявку. Чекайте відповіді");
+                    }
+                    else
+                    {
+                        SumbitCandidacy sumbitCandidacy = new SumbitCandidacy { Id = db.SumbitCandidacies.Count() + (new Random()).Next(10, 100000), ElectionId = election.Id, Election = election, UserId = user.Id, User = user };
+                        db.SumbitCandidacies.Add(sumbitCandidacy);
+                        await db.SaveChangesAsync();
+                        return Content("Ваша заявка прийнята. Чекайте відповіді");
+                    }
+                }
+            }
+            return NotFound();
         }
     }
 }

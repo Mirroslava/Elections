@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ElectionLand.Models.SumbitCandidacy>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Election)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Election.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FirstName)
+                @Html.DisplayFor(modelItem => item.User.LastName)
+            </td>
+            <td>
+                <a class="btn-right" style="width:100px; height:60px;" asp-action="AnswerCandidacy" asp-route-answer="@true" asp-route-sumbitCandidacy_id="@item.Id">Прийняти</a>
+                <span>    </span>
+                <a class="btn-right" style="width:100px; height:60px;" asp-action="AnswerCandidacy" asp-route-answer="@false" asp-route-sumbitCandidacy_id="@item.Id">Відхилити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-action="Admin"><span>Back</span></a>
