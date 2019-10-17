@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ElectionLand.Data.Seed;
 using ElectionLand.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,14 +22,15 @@ namespace ElectionLand
         {
             // Add framework services.
             services.AddDbContext<AplicationContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, AplicationContext context)
         {
+            InitializeDatabase(context);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -55,8 +50,16 @@ namespace ElectionLand
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Start}/{id?}");
-
             });
+        }
+
+        private static void InitializeDatabase(AplicationContext context)
+        {
+            context.Database.Migrate();
+            using (var seed = new ApplicationDbInitializer(context))
+            {
+                seed.SeedDataAsync().GetAwaiter().GetResult();
+            }
         }
     }
 }
